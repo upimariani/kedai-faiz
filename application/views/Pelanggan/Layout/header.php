@@ -35,7 +35,14 @@
                                 <li><i class="ti-location-pin"></i> Store location</li>
                                 <li><i class="ti-alarm-clock"></i> <a href="#">Daily deal</a></li>
                                 <li><i class="ti-user"></i> <a href="#">My account</a></li>
-                                <li><i class="ti-power-off"></i><a href="login.html#">Login</a></li>
+                                <?php
+                                if ($this->session->userdata('id') == '') {
+                                    echo '<li><i class="ti-power-off"></i><a href="' . base_url('Pelanggan/cLogin') . '">Login</a></li>';
+                                } else {
+                                    echo '<li><i class="ti-power-off"></i><a href="' . base_url('Pelanggan/cLogin/logout') . '">Logout</a></li>';
+                                }
+                                ?>
+
                             </ul>
                         </div>
                         <!-- End Top Right -->

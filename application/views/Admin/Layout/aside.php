@@ -41,7 +41,7 @@
                                 </g>
                             </svg>
                         </span>
-                        <span class="app-brand-text demo menu-text fw-bolder ms-2">Sneat</span>
+                        <span class="app-brand-text demo menu-text fw-bolder ms-2">Admin</span>
                     </a>
 
                     <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
@@ -90,6 +90,14 @@
                             <div data-i18n="Basic">Diskon</div>
                         </a>
                     </li>
+                    <li class="menu-item <?php if ($this->uri->segment(1) == 'Admin' && $this->uri->segment(2) == 'cUser') {
+                                                echo 'active';
+                                            }  ?>">
+                        <a href="<?= base_url('Admin/cUser') ?>" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-user"></i>
+                            <div data-i18n="Basic">User</div>
+                        </a>
+                    </li>
                     <!-- Components -->
                     <li class="menu-header small text-uppercase"><span class="menu-header-text">Transaksi</span></li>
                     <!-- Cards -->
@@ -126,6 +134,14 @@
                                 </a>
                             </li>
                         </ul>
+                    </li>
+                    <li class="menu-item <?php if ($this->uri->segment(1) == 'Admin' && $this->uri->segment(2) == 'cLaporan') {
+                                                echo 'active';
+                                            }  ?>">
+                        <a href="<?= base_url('Admin/cLaporan') ?>" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-file"></i>
+                            <div data-i18n="Basic">Laporan</div>
+                        </a>
                     </li>
 
 
