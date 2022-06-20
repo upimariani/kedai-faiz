@@ -6,6 +6,7 @@ class cCart extends CI_Controller
 
     public function index()
     {
+        $this->protect->protect();
         $this->load->view('Pelanggan/Layout/head');
         $this->load->view('Pelanggan/Layout/header');
         $this->load->view('Pelanggan/cart');
@@ -13,6 +14,7 @@ class cCart extends CI_Controller
     }
     public function add_cart()
     {
+        $this->protect->protect();
         $data = array(
             'id' => $this->input->post('id'),
             'name' => $this->input->post('name'),

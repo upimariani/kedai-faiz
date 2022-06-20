@@ -101,44 +101,51 @@
                                 <a href="#" class="single-icon"><i class="fa fa-user-circle-o" aria-hidden="true"></i></a>
                             </div>
                             <?php
-                            $qty = 0;
-                            foreach ($this->cart->contents() as $key => $value) {
-                                $qty += $value['qty'];
+                            if ($this->session->userdata('id') != '') {
+                            ?>
+                                <?php
+                                $qty = 0;
+                                foreach ($this->cart->contents() as $key => $value) {
+                                    $qty += $value['qty'];
+                                }
+                                ?>
+                                <div class="sinlge-bar shopping">
+                                    <a href="#" class="single-icon"><i class="ti-bag"></i> <span class="total-count"><?= $qty ?></span></a>
+                                    <!-- Shopping Item -->
+                                    <div class="shopping-item">
+                                        <div class="dropdown-cart-header">
+                                            <span><?= $qty ?> Items</span>
+                                            <a href="<?= base_url('Pelanggan/cCart') ?>">View Cart</a>
+                                        </div>
+                                        <ul class="shopping-list">
+                                            <?php
+                                            foreach ($this->cart->contents() as $key => $value) {
+                                            ?>
+                                                <li>
+                                                    <a href="<?= base_url('Pelanggan/cCart/delete/' . $value['rowid']) ?>" class="remove" title="Remove this item"><i class="fa fa-remove"></i></a>
+                                                    <a class="cart-img" href="#"><img src="<?= base_url('asset/foto-produk/' . $value['picture']) ?>" alt="#"></a>
+                                                    <h4><a href="#"><?= $value['name'] ?></a></h4>
+                                                    <p class="quantity"><?= $value['qty'] ?>x - <span class="amount">Rp. <?= number_format($value['price']) ?></span></p>
+                                                </li>
+                                            <?php
+                                            }
+                                            ?>
+
+                                        </ul>
+                                        <div class="bottom">
+                                            <div class="total">
+                                                <span>Total</span>
+                                                <span class="total-amount">Rp. <?= number_format($this->cart->total()) ?></span>
+                                            </div>
+                                            <a href="<?= base_url('Pelanggan/cCheckout') ?>" class="btn animate">Checkout</a>
+                                        </div>
+                                    </div>
+                                    <!--/ End Shopping Item -->
+                                </div>
+                            <?php
                             }
                             ?>
-                            <div class="sinlge-bar shopping">
-                                <a href="#" class="single-icon"><i class="ti-bag"></i> <span class="total-count"><?= $qty ?></span></a>
-                                <!-- Shopping Item -->
-                                <div class="shopping-item">
-                                    <div class="dropdown-cart-header">
-                                        <span><?= $qty ?> Items</span>
-                                        <a href="<?= base_url('Pelanggan/cCart') ?>">View Cart</a>
-                                    </div>
-                                    <ul class="shopping-list">
-                                        <?php
-                                        foreach ($this->cart->contents() as $key => $value) {
-                                        ?>
-                                            <li>
-                                                <a href="<?= base_url('Pelanggan/cCart/delete/' . $value['rowid']) ?>" class="remove" title="Remove this item"><i class="fa fa-remove"></i></a>
-                                                <a class="cart-img" href="#"><img src="<?= base_url('asset/foto-produk/' . $value['picture']) ?>" alt="#"></a>
-                                                <h4><a href="#"><?= $value['name'] ?></a></h4>
-                                                <p class="quantity"><?= $value['qty'] ?>x - <span class="amount">Rp. <?= number_format($value['price']) ?></span></p>
-                                            </li>
-                                        <?php
-                                        }
-                                        ?>
 
-                                    </ul>
-                                    <div class="bottom">
-                                        <div class="total">
-                                            <span>Total</span>
-                                            <span class="total-amount">Rp. <?= number_format($this->cart->total()) ?></span>
-                                        </div>
-                                        <a href="<?= base_url('Pelanggan/cCheckout') ?>" class="btn animate">Checkout</a>
-                                    </div>
-                                </div>
-                                <!--/ End Shopping Item -->
-                            </div>
                         </div>
                     </div>
                 </div>

@@ -79,10 +79,10 @@
                                 <div class="nav-inner">
                                     <ul class="nav main-menu menu navbar-nav">
                                         <li class="active"><a href="#">Home</a></li>
-                                        <li><a href="#">Product</a></li>
+                                        <li><a href="<?= base_url('Pelanggan/cShopGrid') ?>">Product</a></li>
 
-                                        <li><a href="contact.html">My Account</a></li>
-                                        <li><a href="contact.html">My Order</a></li>
+                                        <li><a href="<?= base_url('Pelanggan/cProfil') ?>">My Account</a></li>
+                                        <li><a href="<?= base_url('Pelanggan/cStatusOrder') ?>">My Order</a></li>
                                     </ul>
                                 </div>
                             </div>

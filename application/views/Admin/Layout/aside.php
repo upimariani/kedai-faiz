@@ -101,35 +101,37 @@
                     <!-- Components -->
                     <li class="menu-header small text-uppercase"><span class="menu-header-text">Transaksi</span></li>
                     <!-- Cards -->
-                    <li class="menu-item">
-                        <a href="javascript:void(0);" class="menu-link menu-toggle">
+                    <li class="menu-item  <?php if ($this->uri->segment(1) == 'Admin' && $this->uri->segment(2) == 'cTransaksi') {
+                                                echo 'open';
+                                            }  ?>">
+                        <a href="javascript:void(0);" class="menu-link menu-toggle ">
                             <i class='menu-icon tf-icons bx bxs-shopping-bags'></i>
                             <div data-i18n="Layouts">Pesanan</div>
                         </a>
 
                         <ul class="menu-sub">
                             <li class="menu-item">
-                                <a href="layouts-without-menu.html" class="menu-link">
+                                <a href="<?= base_url('Admin/cTransaksi/pesanan_masuk') ?>" class="menu-link">
                                     <div data-i18n="Without menu">Pesanan Masuk</div>
                                 </a>
                             </li>
                             <li class="menu-item">
-                                <a href="layouts-without-navbar.html" class="menu-link">
+                                <a href="<?= base_url('Admin/cTransaksi/konfirmasi_pembayaran') ?>" class="menu-link">
                                     <div data-i18n="Without navbar">Konfirmasi Pembayaran</div>
                                 </a>
                             </li>
                             <li class="menu-item">
-                                <a href="layouts-container.html" class="menu-link">
+                                <a href="<?= base_url('Admin/cTransaksi/pesanan_diproses') ?>" class="menu-link">
                                     <div data-i18n="Container">Pesanan Diproses</div>
                                 </a>
                             </li>
                             <li class="menu-item">
-                                <a href="layouts-fluid.html" class="menu-link">
+                                <a href="<?= base_url('Admin/cTransaksi/pesanan_dikirim') ?>" class="menu-link">
                                     <div data-i18n="Fluid">Pesanan Dikirim</div>
                                 </a>
                             </li>
                             <li class="menu-item">
-                                <a href="layouts-blank.html" class="menu-link">
+                                <a href="<?= base_url('Admin/cTransaksi/pesanan_selesai') ?>" class="menu-link">
                                     <div data-i18n="Blank">Pesanan Selesai</div>
                                 </a>
                             </li>

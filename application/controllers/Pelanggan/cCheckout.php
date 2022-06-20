@@ -13,6 +13,7 @@ class cCheckout extends CI_Controller
 
     public function index()
     {
+        $this->protect->protect();
         $this->load->view('Pelanggan/checkout');
     }
     function add_ajax_kec()
@@ -23,6 +24,7 @@ class cCheckout extends CI_Controller
     }
     public function pesan()
     {
+        $this->protect->protect();
         $this->form_validation->set_rules('kota', 'Kota', 'required');
         $this->form_validation->set_rules('kecamatan', 'Kecamatan', 'required');
         $this->form_validation->set_rules('rt', 'RT', 'required');
@@ -36,7 +38,7 @@ class cCheckout extends CI_Controller
             //menyimpan tabel trasnsaksi
             $data = array(
                 'id_transaksi' => $this->input->post('id_transaksi'),
-                'id_pelanggan' => '1',
+                'id_pelanggan' => $this->session->userdata('id'),
                 'tgl_transaksi' => date('Y-m-d'),
                 'total_bayar' => $this->input->post('total'),
                 'status_order' => '0',

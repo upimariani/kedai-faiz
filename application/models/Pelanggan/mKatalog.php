@@ -5,7 +5,12 @@ class mKatalog extends CI_Model
 {
     public function katalog()
     {
-        $data['menu'] = $this->db->query("SELECT * FROM `produk` JOIN diskon ON produk.id_produk = diskon.id_produk WHERE diskon.member='3'")->result();
+        if ($this->session->userdata('member') == '') {
+            $data['menu'] = $this->db->query("SELECT * FROM `produk` JOIN diskon ON produk.id_produk = diskon.id_produk WHERE diskon.member='3'")->result();
+        } else {
+            $data['menu'] = $this->db->query("SELECT * FROM `produk` JOIN diskon ON produk.id_produk = diskon.id_produk WHERE diskon.member='" . $this->session->userdata('member') . "'")->result();
+        }
+
         return $data;
     }
 }

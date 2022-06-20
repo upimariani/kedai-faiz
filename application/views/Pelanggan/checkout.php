@@ -184,22 +184,10 @@
                                         <div class="nav-inner">
                                             <ul class="nav main-menu menu navbar-nav">
                                                 <li class="active"><a href="#">Home</a></li>
-                                                <li><a href="#">Product</a></li>
-                                                <li><a href="#">Service</a></li>
-                                                <li><a href="#">Shop<i class="ti-angle-down"></i><span class="new">New</span></a>
-                                                    <ul class="dropdown">
-                                                        <li><a href="shop-grid.html">Shop Grid</a></li>
-                                                        <li><a href="cart.html">Cart</a></li>
-                                                        <li><a href="checkout.html">Checkout</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li><a href="#">Pages</a></li>
-                                                <li><a href="#">Blog<i class="ti-angle-down"></i></a>
-                                                    <ul class="dropdown">
-                                                        <li><a href="blog-single-sidebar.html">Blog Single Sidebar</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li><a href="contact.html">Contact Us</a></li>
+                                                <li><a href="<?= base_url('Pelanggan/cShopGrid') ?>">Product</a></li>
+
+                                                <li><a href="<?= base_url('Pelanggan/cProfil') ?>">My Account</a></li>
+                                                <li><a href="<?= base_url('Pelanggan/cStatusOrder') ?>">My Order</a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -276,19 +264,19 @@
                                 <div class="col-lg-6 col-md-6 col-12">
                                     <div class="form-group">
                                         <label>RT<span>*</span></label>
-                                        <input type="text" name="rt" placeholder="" required="required">
+                                        <input type="text" class="form-control" name="rt" placeholder="" required="required">
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-12">
                                     <div class="form-group">
                                         <label>RW<span>*</span></label>
-                                        <input type="text" name="rw" placeholder="" required="required">
+                                        <input type="text" class="form-control" name="rw" placeholder="" required="required">
                                     </div>
                                 </div>
                                 <div class="col-lg-12 col-md-6 col-12">
                                     <div class="form-group">
                                         <label>Alamat Detail<span>*</span></label>
-                                        <input type="text" name="alamat" placeholder="" required="required">
+                                        <input type="text" class="form-control" name="alamat" placeholder="" required="required">
                                     </div>
                                 </div>
 
@@ -311,23 +299,7 @@
                             </div>
                             <!--/ End Order Widget -->
                             <!-- Order Widget -->
-                            <div class="single-widget">
-                                <h2>Payments</h2>
-                                <div class="content">
-                                    <div class="checkbox">
-                                        <label class="checkbox-inline" for="1"><input name="updates" id="1" type="checkbox"> Check Payments</label>
-                                        <label class="checkbox-inline" for="2"><input name="news" id="2" type="checkbox"> Cash On Delivery</label>
-                                        <label class="checkbox-inline" for="3"><input name="news" id="3" type="checkbox"> PayPal</label>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--/ End Order Widget -->
-                            <!-- Payment Method Widget -->
-                            <div class="single-widget payement">
-                                <div class="content">
-                                    <img src="images/payment-method.png" alt="#">
-                                </div>
-                            </div>
+
                             <!--/ End Payment Method Widget -->
                             <!-- Button Widget -->
                             <div class="single-widget get-button">

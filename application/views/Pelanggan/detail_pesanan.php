@@ -38,7 +38,7 @@
                 <div class="bread-inner">
                     <ul class="bread-list">
                         <li><a href="index1.html">Home<i class="ti-arrow-right"></i></a></li>
-                        <li class="active"><a href="blog-single.html">Cart</a></li>
+                        <li class="active"><a href="blog-single.html">Detail Pesanan</a></li>
                     </ul>
                 </div>
             </div>
@@ -52,48 +52,123 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
+                <!-- Total Amount -->
+                <div class="total-amount">
+                    <div class="row">
+                        <div class="col-lg-5">
+                            <div class="right">
+                                <h2>Detail Pesanan</h2><br>
+                                <ul>
+                                    <li><i class="fa fa-barcode" aria-hidden="true"></i>Id Transaksi<span class="badge badge-warning"> <?= $detail['transaksi']->id_transaksi ?></span></li>
+                                    <li>Atas Nama<span><?= $detail['transaksi']->nm_pel ?></span></li>
+                                    <li>No Telepon<span><?= $detail['transaksi']->no_tlpon ?></span></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-7 col-md-7 col-12">
+                            <div class="right">
+                                <br>
+                                <br>
+                                <br>
+                                <ul>
+                                    <li>Tanggal Transaksi<span><?= $detail['transaksi']->tgl_transaksi ?></span></li>
+                                    <li>Alamat Pengiriman<span><?= $detail['transaksi']->alamat_pengiriman ?> RT <?= $detail['transaksi']->rt ?> RW <?= $detail['transaksi']->rw ?> Kec. <?= $detail['transaksi']->nm_kecamatan ?></span></li>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--/ End Total Amount -->
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
                 <!-- Shopping Summery -->
                 <table class="table shopping-summery">
                     <thead>
                         <tr class="main-hading">
-                            <th>Id Transaksi</th>
-                            <th>Tanggal Transaksi</th>
-                            <th class="text-center">Total Pembayaran</th>
-                            <th class="text-center">Status Order</th>
-                            <th class="text-center">Detail</th>
+                            <th>No</th>
+                            <th>Nama Produk</th>
+                            <th class="text-center">Quantity</th>
+                            <th class="text-center">Harga</th>
+                            <th class="text-center">Subtotal</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach ($status as $key => $value) {
+                        <?php
+                        $no = 1;
+                        foreach ($detail['pesanan'] as $key => $value) {
                         ?>
                             <tr>
-                                <td><strong><?= $value->id_transaksi ?></strong></td>
-                                <td><?= $value->tgl_transaksi ?></td>
-                                <td>Rp. <?= number_format($value->total_bayar)  ?></td>
-                                <td class="text-center">
-                                    <?php
-                                    if ($value->status_order  == '0') {
-                                        echo '<span class="badge badge-danger">Belum Bayar</span>';
-                                    } else if ($value->status_order  == '1') {
-                                        echo '<span class="badge badge-warning">Menunggu Konfirmasi</span>';
-                                    } else if ($value->status_order  == '2') {
-                                        echo '<span class="badge badge-info">Pesanan Diproses</span>';
-                                    } else if ($value->status_order  == '3') {
-                                        echo '<span class="badge badge-primary">Pesanan Dikirim</span>';
-                                    } else if ($value->status_order  == '4') {
-                                        echo '<span class="badge badge-success">Selesai</span>';
-                                    }
-                                    ?>
-
-                                </td>
-                                <td class="text-center"><a href="<?= base_url('Pelanggan/cStatusOrder/detail_pesanan/' . $value->id_transaksi) ?>"><i class="fa fa-bars" aria-hidden="true"></i></a></td>
+                                <td class="text-center"><?= $no++ ?>.</td>
+                                <td><?= $value->nama_produk ?></td>
+                                <td class="text-center"><?= $value->qty ?> x</td>
+                                <td class="text-center">Rp. <?= number_format($value->harga - ($value->harga * $value->diskon / 100))  ?></td>
+                                <td class="text-center">Rp. <?= number_format(($value->harga - ($value->harga * $value->diskon / 100)) * $value->qty) ?></td>
                             </tr>
                         <?php
-                        } ?>
+                        }
+                        ?>
 
                     </tbody>
                 </table>
                 <!--/ End Shopping Summery -->
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <!-- Total Amount -->
+                <div class="total-amount">
+                    <div class="row">
+                        <div class="col-lg-8 col-md-5 col-12">
+                            <?php
+                            if ($detail['transaksi']->status_order == '0') {
+                            ?>
+                                <h3>Bukti Pembayaran</h3>
+                                <p>Transfer Via Bank BRI / 0123-3456-0987-09-2</p>
+                                <?php echo form_open_multipart('pelanggan/cStatusOrder/pembayaran/' . $detail['transaksi']->id_transaksi); ?>
+
+                                <input type="file" name="gambar" class="form-control">
+                                <button type="submit" class="btn mt-3">Upload</button>
+                                </form>
+                            <?php
+                            }
+                            if ($detail['transaksi']->status_order == '3') {
+                            ?>
+                                <h3>Pesanan Diterima</h3>
+                                <p>Konfirmasi jika pesanan anda telah diterima</p>
+                                <?php echo form_open('pelanggan/cStatusOrder/diterima/' . $detail['transaksi']->id_transaksi); ?>
+                                <input type="hidden" name="pelanggan" value="<?= $detail['transaksi']->id_pelanggan ?>">
+                                <input type="hidden" name="total_belanja" value="<?= $detail['transaksi']->total_bayar ?>">
+                                <?php
+                                $point = 0;
+                                $point = (0.5 / 100) * $detail['transaksi']->total_bayar;
+
+                                ?>
+                                <input type="hidden" name="point" value="<?= $point ?>">
+                                <button type="submit" class="btn mt-3">Konfirmasi</button>
+                                </form>
+                            <?php
+                            }
+                            ?>
+
+                        </div>
+                        <div class="col-lg-4 col-md-7 col-12">
+                            <div class="right">
+                                <ul>
+                                    <li>Subtotal<span>Rp. <?= number_format($detail['transaksi']->total_bayar) ?></span></li>
+                                    <li>Shipping<span>Rp. <?= number_format($detail['transaksi']->ongkir) ?></span></li>
+                                    <li class="last">Total<span>Rp. <?= number_format($detail['transaksi']->total_bayar + $detail['transaksi']->ongkir) ?></span></li>
+                                </ul>
+                                <div class="button5">
+                                    <a href="<?= base_url('pelanggan/cStatusOrder') ?>" class="btn">Kembali</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--/ End Total Amount -->
             </div>
         </div>
     </div>
