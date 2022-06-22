@@ -38,7 +38,7 @@
                         foreach ($diskon as $key => $value) {
                         ?>
                             <tr>
-                                <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong><?= $value->nama_diskon ?></strong></td>
+                                <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong><?= $value->nama_produk ?></strong></td>
                                 <td>Rp. <?= number_format($value->harga, 0) ?></td>
                                 <td><?= $value->nama_diskon ?></td>
                                 <td><?= $value->diskon ?>%</td>

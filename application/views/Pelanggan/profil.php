@@ -11,22 +11,10 @@
                                 <div class="nav-inner">
                                     <ul class="nav main-menu menu navbar-nav">
                                         <li class="active"><a href="#">Home</a></li>
-                                        <li><a href="#">Product</a></li>
-                                        <li><a href="#">Service</a></li>
-                                        <li><a href="#">Shop<i class="ti-angle-down"></i><span class="new">New</span></a>
-                                            <ul class="dropdown">
-                                                <li><a href="shop-grid.html">Shop Grid</a></li>
-                                                <li><a href="cart.html">Cart</a></li>
-                                                <li><a href="checkout.html">Checkout</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="#">Pages</a></li>
-                                        <li><a href="#">Blog<i class="ti-angle-down"></i></a>
-                                            <ul class="dropdown">
-                                                <li><a href="blog-single-sidebar.html">Blog Single Sidebar</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="contact.html">Contact Us</a></li>
+                                        <li><a href="<?= base_url('Pelanggan/cShopGrid') ?>">Product</a></li>
+
+                                        <li><a href="<?= base_url('Pelanggan/cProfil') ?>">My Account</a></li>
+                                        <li><a href="<?= base_url('Pelanggan/cStatusOrder') ?>">My Order</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -67,41 +55,42 @@
                 <div class="col-lg-8 col-12">
                     <div class="form-main">
                         <div class="title">
-                            <h4>Get in touch</h4>
-                            <h3>Write us a message</h3>
+                            <h4>Profil Pelanggan</h4>
+                            <h3>Perbaharui Data Pelanggan</h3>
                         </div>
-                        <form class="form" method="post" action="mail/mail.php">
+                        <form class="form" method="post" action="<?= base_url() ?>/pelanggan/cprofil/update_profil">
                             <div class="row">
                                 <div class="col-lg-6 col-12">
                                     <div class="form-group">
-                                        <label>Your Name<span>*</span></label>
-                                        <input name="name" type="text" placeholder="">
+                                        <label>Nama Pelanggan<span>*</span></label>
+                                        <input name="nama" value="<?= $pelanggan->nm_pel ?>" type="text" placeholder="">
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-12">
                                     <div class="form-group">
-                                        <label>Your Subjects<span>*</span></label>
-                                        <input name="subject" type="text" placeholder="">
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-12">
-                                    <div class="form-group">
-                                        <label>Your Email<span>*</span></label>
-                                        <input name="email" type="email" placeholder="">
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-12">
-                                    <div class="form-group">
-                                        <label>Your Phone<span>*</span></label>
-                                        <input name="company_name" type="text" placeholder="">
+                                        <label>No Telepon<span>*</span></label>
+                                        <input name="no_hp" value="<?= $pelanggan->no_tlpon ?>" type="number" placeholder="">
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="form-group message">
-                                        <label>your message<span>*</span></label>
-                                        <textarea name="message" placeholder=""></textarea>
+                                        <label>Alamat<span>*</span></label>
+                                        <textarea name="alamat" placeholder=""><?= $pelanggan->alamat ?></textarea>
                                     </div>
                                 </div>
+                                <div class="col-lg-6 col-12">
+                                    <div class="form-group">
+                                        <label>Username<span>*</span></label>
+                                        <input name="username" value="<?= $pelanggan->username ?>" type="text" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-12">
+                                    <div class="form-group">
+                                        <label>Password<span>*</span></label>
+                                        <input name="password" value="<?= $pelanggan->password ?>" type="text" placeholder="">
+                                    </div>
+                                </div>
+
                                 <div class="col-12">
                                     <div class="form-group button">
                                         <button type="submit" class="btn ">Send Message</button>
@@ -114,26 +103,44 @@
                 <div class="col-lg-4 col-12">
                     <div class="single-head">
                         <div class="single-info">
-                            <i class="fa fa-phone"></i>
-                            <h4 class="title">Call us Now:</h4>
+                            <i class="fa fa-user"></i>
+                            <h4 class="title">Member</h4>
                             <ul>
-                                <li>+123 456-789-1120</li>
-                                <li>+522 672-452-1120</li>
-                            </ul>
-                        </div>
-                        <div class="single-info">
-                            <i class="fa fa-envelope-open"></i>
-                            <h4 class="title">Email:</h4>
-                            <ul>
-                                <li><a href="mailto:info@yourwebsite.com">info@yourwebsite.com</a></li>
-                                <li><a href="mailto:info@yourwebsite.com">support@yourwebsite.com</a></li>
-                            </ul>
-                        </div>
-                        <div class="single-info">
-                            <i class="fa fa-location-arrow"></i>
-                            <h4 class="title">Our Address:</h4>
-                            <ul>
-                                <li>KA-62/1, Travel Agency, 45 Grand Central Terminal, New York.</li>
+                                <li>Point anda saat ini sebanyak <strong><?= $pelanggan->point ?> point</strong></li>
+                                <li class="mt-5">
+                                    <h5>Level Member <strong>
+                                            <?php
+                                            if ($pelanggan->level_member == '3') {
+                                                echo 'Classic';
+                                            } else if ($pelanggan->level_member == '2') {
+                                                echo 'Silver';
+                                            } else {
+                                                echo 'Gold';
+                                            }
+                                            ?>
+                                        </strong></h5>
+                                </li>
+                                <li>
+                                    <p class="mb-3">Silahkan anda melakukan transaksi lebih banyak agar anda dapat meningkatkan level member anda!</p>
+                                    <?php
+                                    $vol1 = $pelanggan->point / 10;
+                                    $vol2 = $pelanggan->point / 100;
+                                    if ($pelanggan->level_member == '3') {
+                                    ?>
+                                        <div class="progress">
+                                            <div class="progress-bar bg-success" role="progressbar" style="width: <?= $vol1 ?>%" aria-valuenow="<?= $pelanggan->point ?>" aria-valuemin="0" aria-valuemax="1000">Silver 1000 point</div>
+                                        </div>
+                                    <?php
+                                    } else if ($pelanggan->level_member == '2') {
+                                    ?>
+                                        <div class="progress">
+                                            <div class="progress-bar bg-warning" role="progressbar" style="width:  <?= $vol2 ?>%" aria-valuenow="<?= $pelanggan->point ?>" aria-valuemin="0" aria-valuemax="10000">Gold 10000 point</div>
+                                        </div>
+                                    <?php
+                                    }
+                                    ?>
+
+                                </li>
                             </ul>
                         </div>
                     </div>

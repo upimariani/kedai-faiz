@@ -13,10 +13,13 @@ class cKatalog extends CI_Controller
 
     public function index()
     {
-        
+        $data = array(
+            'best' => $this->mKatalog->produk_best(),
+            'menu' => $this->mKatalog->menu_paket()
+        );
         $this->load->view('Pelanggan/Layout/head');
         $this->load->view('Pelanggan/Layout/header');
-        $this->load->view('Pelanggan/katalog');
+        $this->load->view('Pelanggan/katalog', $data);
         $this->load->view('Pelanggan/Layout/footer');
     }
 }
