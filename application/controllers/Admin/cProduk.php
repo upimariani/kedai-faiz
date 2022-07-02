@@ -157,6 +157,12 @@ class cProduk extends CI_Controller
         $this->load->view('Admin/Produk/updateProduk', $data);
         $this->load->view('Admin/Layout/footer');
     }
+    public function delete($id)
+    {
+        $this->mProduk->delete($id);
+        $this->session->set_flashdata('success', 'Data Produk Berhasil Dihapus !!!');
+        redirect('Admin/cProduk');
+    }
 }
 
 /* End of file cProduk.php */

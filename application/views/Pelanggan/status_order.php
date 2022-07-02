@@ -10,11 +10,13 @@
                             <div class="navbar-collapse">
                                 <div class="nav-inner">
                                     <ul class="nav main-menu menu navbar-nav">
-                                        <li class="active"><a href="#">Home</a></li>
+                                        <li class="active"><a href="<?= base_url('pelanggan/ckatalog') ?>">Home</a></li>
                                         <li><a href="<?= base_url('Pelanggan/cShopGrid') ?>">Product</a></li>
 
                                         <li><a href="<?= base_url('Pelanggan/cProfil') ?>">My Account</a></li>
                                         <li><a href="<?= base_url('Pelanggan/cStatusOrder') ?>">My Order</a></li>
+                                        <li><a href="<?= base_url('Pelanggan/cChatting') ?>">Chatting</a></li>
+                                        <li><a href="<?= base_url('Pelanggan/cStatusOrder/all_review') ?>">All Kritik Saran</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -38,7 +40,7 @@
                 <div class="bread-inner">
                     <ul class="bread-list">
                         <li><a href="index1.html">Home<i class="ti-arrow-right"></i></a></li>
-                        <li class="active"><a href="blog-single.html">Cart</a></li>
+                        <li class="active"><a href="blog-single.html">Status Order</a></li>
                     </ul>
                 </div>
             </div>

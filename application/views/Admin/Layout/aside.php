@@ -137,12 +137,21 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="menu-item <?php if ($this->uri->segment(1) == 'Admin' && $this->uri->segment(2) == 'cLaporan') {
+                    <li class="menu-header small text-uppercase"><span class="menu-header-text">Laporan Analisis</span></li>
+                    <li class="menu-item <?php if ($this->uri->segment(1) == 'Admin' && $this->uri->segment(2) == 'cLaporan_transaksi') {
                                                 echo 'active';
                                             }  ?>">
-                        <a href="<?= base_url('Admin/cLaporan') ?>" class="menu-link">
+                        <a href="<?= base_url('Admin/cLaporan_transaksi') ?>" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-file"></i>
-                            <div data-i18n="Basic">Laporan</div>
+                            <div data-i18n="Basic">Laporan Transaksi</div>
+                        </a>
+                    </li>
+                    <li class="menu-item <?php if ($this->uri->segment(1) == 'Admin' && $this->uri->segment(2) == 'cAnalisis_Produk') {
+                                                echo 'active';
+                                            }  ?>">
+                        <a href="<?= base_url('Admin/cAnalisis_Produk') ?>" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-user"></i>
+                            <div data-i18n="Basic">Analisis Produk</div>
                         </a>
                     </li>
 

@@ -64,7 +64,7 @@ class cCheckout extends CI_Controller
             foreach ($this->cart->contents() as $item) {
                 $data_rinci = array(
                     'id_transaksi' => $this->input->post('id_transaksi'),
-                    'id_produk' => $item['id'],
+                    'id_diskon' => $item['id'],
                     'qty' => $this->input->post('qty' . $i++)
                 );
                 $this->mCheckout->detail_transaksi($data_rinci);

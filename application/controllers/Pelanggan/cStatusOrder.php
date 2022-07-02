@@ -85,12 +85,29 @@ class cStatusOrder extends CI_Controller
         );
         $this->db->where('id_transaksi', $id);
         $this->db->update('transaksi', $status_order);
-
-
-
-
         $this->session->set_flashdata('success', 'Pesanan Sudah Diterima');
         redirect('pelanggan/cStatusOrder');
+    }
+
+    public function kritiksaran()
+    {
+        $data = array(
+            'isi_kritik' => $this->input->post('review'),
+            'id_pelanggan' => $this->session->userdata('id'),
+            'id_user' => '1'
+        );
+        $this->mStatusOrder->kritik_saran($data);
+        redirect('pelanggan/cstatusorder');
+    }
+    public function all_review()
+    {
+        $data = array(
+            'review' => $this->mStatusOrder->review_all()
+        );
+        $this->load->view('Pelanggan/Layout/head');
+        $this->load->view('Pelanggan/Layout/header');
+        $this->load->view('Pelanggan/review', $data);
+        $this->load->view('Pelanggan/Layout/footer');
     }
 }
 

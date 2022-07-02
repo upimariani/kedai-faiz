@@ -67,7 +67,7 @@
                                             </button>
                                             <div class="dropdown-menu">
                                                 <a class="dropdown-item" href="<?= base_url('Admin/cProduk/update/' . $value->id_produk) ?>"><i class="bx bx-edit-alt me-1"></i> Edit</a>
-                                                <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-trash me-1"></i> Delete</a>
+                                                <a class="dropdown-item" href="<?= base_url('Admin/cProduk/delete/' . $value->id_produk) ?>"><i class="bx bx-trash me-1"></i> Delete</a>
                                             </div>
                                         </td>
                                     </tr>

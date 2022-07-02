@@ -35,6 +35,17 @@ class mStatusOrder extends CI_Model
         $this->db->where('id_pelanggan', $id);
         $this->db->update('pelanggan', $data);
     }
+    public function kritik_saran($data)
+    {
+        $this->db->insert('kritik_saran', $data);
+    }
+    public function review_all()
+    {
+        $this->db->select('*');
+        $this->db->from('kritik_saran');
+        $this->db->join('pelanggan', 'kritik_saran.id_pelanggan = pelanggan.id_pelanggan', 'left');
+        return $this->db->get()->result();
+    }
 }
 
 /* End of file mStatusOrder.php */

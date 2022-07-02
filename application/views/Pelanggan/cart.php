@@ -10,11 +10,12 @@
                             <div class="navbar-collapse">
                                 <div class="nav-inner">
                                     <ul class="nav main-menu menu navbar-nav">
-                                        <li class="active"><a href="#">Home</a></li>
+                                        <li class="active"><a href="<?= base_url('pelanggan/ckatalog') ?>">Home</a></li>
                                         <li><a href="<?= base_url('Pelanggan/cShopGrid') ?>">Product</a></li>
 
                                         <li><a href="<?= base_url('Pelanggan/cProfil') ?>">My Account</a></li>
                                         <li><a href="<?= base_url('Pelanggan/cStatusOrder') ?>">My Order</a></li>
+                                        <li><a href="<?= base_url('Pelanggan/cStatusOrder/all_review') ?>">All Kritik Saran</a></li>
                                     </ul>
                                 </div>
                             </div>
