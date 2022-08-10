@@ -98,6 +98,14 @@
                             <div data-i18n="Basic">User</div>
                         </a>
                     </li>
+                    <li class="menu-item <?php if ($this->uri->segment(1) == 'Admin' && $this->uri->segment(2) == 'cOngkir') {
+                                                echo 'active';
+                                            }  ?>">
+                        <a href="<?= base_url('Admin/cOngkir') ?>" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-tag"></i>
+                            <div data-i18n="Basic">Ongkos Kirim</div>
+                        </a>
+                    </li>
                     <!-- Components -->
                     <li class="menu-header small text-uppercase"><span class="menu-header-text">Transaksi</span></li>
                     <!-- Cards -->
@@ -137,6 +145,14 @@
                             </li>
                         </ul>
                     </li>
+                    <li class="menu-item <?php if ($this->uri->segment(1) == 'Admin' && $this->uri->segment(2) == 'cTransaksiLangsung') {
+                                                echo 'active';
+                                            }  ?>">
+                        <a href="<?= base_url('Admin/cTransaksiLangsung') ?>" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-cart"></i>
+                            <div data-i18n="Basic">Transaksi Langsung</div>
+                        </a>
+                    </li>
                     <li class="menu-header small text-uppercase"><span class="menu-header-text">Laporan Analisis</span></li>
                     <li class="menu-item <?php if ($this->uri->segment(1) == 'Admin' && $this->uri->segment(2) == 'cLaporan_transaksi') {
                                                 echo 'active';
@@ -150,8 +166,16 @@
                                                 echo 'active';
                                             }  ?>">
                         <a href="<?= base_url('Admin/cAnalisis_Produk') ?>" class="menu-link">
-                            <i class="menu-icon tf-icons bx bx-user"></i>
+                            <i class='menu-icon tf-icons bx bx-qr'></i>
                             <div data-i18n="Basic">Analisis Produk</div>
+                        </a>
+                    </li>
+                    <li class="menu-item <?php if ($this->uri->segment(1) == 'Admin' && $this->uri->segment(2) == 'cAnalisis_member') {
+                                                echo 'active';
+                                            }  ?>">
+                        <a href="<?= base_url('Admin/cAnalisis_member') ?>" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-user"></i>
+                            <div data-i18n="Basic">Analisis Pelanggan</div>
                         </a>
                     </li>
 

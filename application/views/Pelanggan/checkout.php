@@ -56,8 +56,9 @@
                         <!-- Top Left -->
                         <div class="top-left">
                             <ul class="list-main">
-                                <li><i class="ti-headphone-alt"></i> +060 (800) 801-582</li>
-                                <li><i class="ti-email"></i> support@shophub.com</li>
+                                 <li><i class="ti-headphone-alt"></i> 0821-2026-6161 </li>
+                                <li><i class="ti-email"></i> kedaifaiz@gmail.com</li>
+								<li><i class="ti-money"></i>No.Rekening : 32221111000</li>
                             </ul>
                         </div>
                         <!--/ End Top Left -->
@@ -66,8 +67,6 @@
                         <!-- Top Right -->
                         <div class="right-content">
                             <ul class="list-main">
-                                <li><i class="ti-location-pin"></i> Store location</li>
-                                <li><i class="ti-alarm-clock"></i> <a href="#">Daily deal</a></li>
                                 <li><i class="ti-user"></i> <a href="#">My account</a></li>
                                 <li><i class="ti-power-off"></i><a href="login.html#">Login</a></li>
                             </ul>
@@ -105,12 +104,7 @@
                     <div class="col-lg-8 col-md-7 col-12">
                         <div class="search-bar-top">
                             <div class="search-bar">
-                                <select>
-                                    <option selected="selected">All Category</option>
-                                    <option>watch</option>
-                                    <option>mobile</option>
-                                    <option>kid’s item</option>
-                                </select>
+                              
                                 <form>
                                     <input name="search" placeholder="Search Products Here....." type="search">
                                     <button class="btnn"><i class="ti-search"></i></button>
@@ -329,7 +323,7 @@
                     <div class="single-service">
                         <i class="ti-rocket"></i>
                         <h4>Free shiping</h4>
-                        <p>Orders over $100</p>
+                        <p></p>
                     </div>
                     <!-- End Single Service -->
                 </div>
@@ -338,7 +332,7 @@
                     <div class="single-service">
                         <i class="ti-reload"></i>
                         <h4>Free Return</h4>
-                        <p>Within 30 days returns</p>
+                        <p></p>
                     </div>
                     <!-- End Single Service -->
                 </div>
@@ -347,7 +341,7 @@
                     <div class="single-service">
                         <i class="ti-lock"></i>
                         <h4>Sucure Payment</h4>
-                        <p>100% secure payment</p>
+                        <p></p>
                     </div>
                     <!-- End Single Service -->
                 </div>
@@ -356,7 +350,7 @@
                     <div class="single-service">
                         <i class="ti-tag"></i>
                         <h4>Best Peice</h4>
-                        <p>Guaranteed price</p>
+                        <p></p>
                     </div>
                     <!-- End Single Service -->
                 </div>
@@ -371,16 +365,6 @@
             <div class="inner-top">
                 <div class="row">
                     <div class="col-lg-8 offset-lg-2 col-12">
-                        <!-- Start Newsletter Inner -->
-                        <div class="inner">
-                            <h4>Newsletter</h4>
-                            <p> Subscribe to our newsletter and get <span>10%</span> off your first purchase</p>
-                            <form action="mail/mail.php" method="get" target="_blank" class="newsletter-inner">
-                                <input name="EMAIL" placeholder="Your email address" required="" type="email">
-                                <button class="btn">Subscribe</button>
-                            </form>
-                        </div>
-                        <!-- End Newsletter Inner -->
                     </div>
                 </div>
             </div>
@@ -399,8 +383,8 @@
                             <div class="logo">
                                 <a href="index.html"><img src="images/logo2.png" alt="#"></a>
                             </div>
-                            <p class="text">Praesent dapibus, neque id cursus ucibus, tortor neque egestas augue, magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus.</p>
-                            <p class="call">Got Question? Call us 24/7<span><a href="tel:123456789">+0123 456 789</a></span></p>
+                            <p class="text">Hi~^^ Selamat Datang di Kedai Faiz. Terimakasih sudah mengunjungi website kami dan melakukan pembelian. Semoga harimu menyenangkan!^^</p>
+                            <p class="call">Call us<span><a href="tel:123456789"></a></span>0821-2026-6161</p>
                         </div>
                         <!-- End Single Widget -->
                     </div>
@@ -419,18 +403,7 @@
                         <!-- End Single Widget -->
                     </div>
                     <div class="col-lg-2 col-md-6 col-12">
-                        <!-- Single Widget -->
-                        <div class="single-footer links">
-                            <h4>Customer Service</h4>
-                            <ul>
-                                <li><a href="#">Payment Methods</a></li>
-                                <li><a href="#">Money-back</a></li>
-                                <li><a href="#">Returns</a></li>
-                                <li><a href="#">Shipping</a></li>
-                                <li><a href="#">Privacy Policy</a></li>
-                            </ul>
-                        </div>
-                        <!-- End Single Widget -->
+                        
                     </div>
                     <div class="col-lg-3 col-md-6 col-12">
                         <!-- Single Widget -->
@@ -439,17 +412,17 @@
                             <!-- Single Widget -->
                             <div class="contact">
                                 <ul>
-                                    <li>NO. 342 - London Oxford Street.</li>
-                                    <li>012 United Kingdom.</li>
-                                    <li>info@eshop.com</li>
-                                    <li>+032 3456 7890</li>
+                                    <li>Jl.Otista Link.Pasapen Kuningan Jawa Barat</li>
+                                    <li>kedaifaiz@gmail</li>
+                                    <li>0821-2026-6161</li>
+									<li>kedaifaiz</li> 
                                 </ul>
                             </div>
                             <!-- End Single Widget -->
                             <ul>
-                                <li><a href="#"><i class="ti-facebook"></i></a></li>
-                                <li><a href="#"><i class="ti-twitter"></i></a></li>
-                                <li><a href="#"><i class="ti-flickr"></i></a></li>
+                                <li><a href="#"><i class="ti-location-pin"></i></a></li>
+                                <li><a href="#"><i class="ti-email"></i></a></li>
+                                <li><a href="#"><i class="ti-mobile"></i></a></li>
                                 <li><a href="#"><i class="ti-instagram"></i></a></li>
                             </ul>
                         </div>
@@ -465,7 +438,7 @@
                     <div class="row">
                         <div class="col-lg-6 col-12">
                             <div class="left">
-                                <p>Copyright © 2020 <a href="http://www.wpthemesgrid.com" target="_blank">Wpthemesgrid</a> - All Rights Reserved.</p>
+                                <p>Copyright © 2022 <a href="http://www.kedai-faiz/Pelanggan/cKatolog.com" target="_blank">Kedaifaiz</a></p>
                             </div>
                         </div>
                         <div class="col-lg-6 col-12">

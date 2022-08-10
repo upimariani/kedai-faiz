@@ -101,6 +101,16 @@ class mLaporan extends CI_Model
         $this->db->where('YEAR(transaksi.tgl_transaksi)', $tahun);
         return $this->db->get()->result();
     }
+
+    //analisis member pelanggan
+    public function member()
+    {
+        $data['gold'] = $this->db->query("SELECT COUNT(level_member) as jml FROM `pelanggan` WHERE level_member='1'")->row();
+        $data['silver'] = $this->db->query("SELECT COUNT(level_member) as jml FROM `pelanggan` WHERE level_member='2'")->row();
+        $data['classic'] = $this->db->query("SELECT COUNT(level_member) as jml FROM `pelanggan` WHERE level_member='3'")->row();
+        $data['all'] = $this->db->query("SELECT * FROM `pelanggan`")->result();
+        return $data;
+    }
 }
 
 /* End of file mlaporan.php */

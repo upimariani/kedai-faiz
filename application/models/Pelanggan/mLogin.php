@@ -15,6 +15,13 @@ class mLogin extends CI_Model
         $this->db->where('password', $password);
         return $this->db->get()->row();
     }
+    public function help($no_hp)
+    {
+        $this->db->select('*');
+        $this->db->from('pelanggan');
+        $this->db->where('no_tlpon', $no_hp);
+        return $this->db->get()->row();
+    }
 }
 
 /* End of file mLogin.php */

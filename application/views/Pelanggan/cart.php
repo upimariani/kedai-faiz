@@ -122,10 +122,25 @@
                                 <ul>
                                     <li>Cart Subtotal<span>Rp. <?php echo $this->cart->format_number($this->cart->total()); ?></span></li>
                                 </ul>
-                                <div class="button5">
-                                    <a href="<?= base_url('Pelanggan/cCheckout') ?>" class="btn">Checkout</a>
-                                    <a href="<?= base_url('Pelanggan/cShopGrid') ?>" class="btn">Continue shopping</a>
-                                </div>
+                                <form action="<?= base_url('Pelanggan/cCheckout/pesan_langsung') ?>" method="POST">
+
+                                    <?php $id_transaksi = date('Ymd') . strtoupper(random_string('alnum', 8));
+                                    ?>
+                                    <input type="hidden" name="total" value="<?= $this->cart->total() ?>">
+                                    <input type="hidden" name="ongkir" id="ong_kirim">
+                                    <input type="hidden" name="id_transaksi" value="<?= $id_transaksi ?>">
+                                    <?php
+                                    $i = 1;
+                                    foreach ($this->cart->contents() as $items) {
+                                        echo form_hidden('qty' . $i++, $items['qty']);
+                                    }
+                                    ?>
+                                    <div class="button5">
+                                        <a href="<?= base_url('Pelanggan/cCheckout') ?>" class="btn">Checkout</a>
+                                        <button type="submit" class="btn">Pesan Langsung</button>
+                                        <a href="<?= base_url('Pelanggan/cShopGrid') ?>" class="btn">Continue shopping</a>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>

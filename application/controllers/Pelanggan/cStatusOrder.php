@@ -109,6 +109,18 @@ class cStatusOrder extends CI_Controller
         $this->load->view('Pelanggan/review', $data);
         $this->load->view('Pelanggan/Layout/footer');
     }
+
+    //transkasi langsung
+    public function detail_pesanan_langsung($id)
+    {
+        $data = array(
+            'detail' => $this->mStatusOrder->detail_pesanan_langsung($id)
+        );
+        $this->load->view('Pelanggan/Layout/head');
+        $this->load->view('Pelanggan/Layout/header');
+        $this->load->view('Pelanggan/detail_pesananLangsung', $data);
+        $this->load->view('Pelanggan/Layout/footer');
+    }
 }
 
 /* End of file cStatusOrder.php */

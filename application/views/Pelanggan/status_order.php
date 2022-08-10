@@ -53,8 +53,10 @@
 <div class="shopping-cart section">
     <div class="container">
         <div class="row">
+            <h2 class="mb-3">Delivery Transaksi</h2>
             <div class="col-12">
                 <!-- Shopping Summery -->
+
                 <table class="table shopping-summery">
                     <thead>
                         <tr class="main-hading">
@@ -66,7 +68,8 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach ($status as $key => $value) {
+                        <?php foreach ($status['deliv'] as $key => $value) {
+
                         ?>
                             <tr>
                                 <td><strong><?= $value->id_transaksi ?></strong></td>
@@ -90,6 +93,59 @@
                                 </td>
                                 <td class="text-center"><a href="<?= base_url('Pelanggan/cStatusOrder/detail_pesanan/' . $value->id_transaksi) ?>"><i class="fa fa-bars" aria-hidden="true"></i></a></td>
                             </tr>
+
+
+                        <?php
+                        } ?>
+
+                    </tbody>
+                </table>
+                <!--/ End Shopping Summery -->
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <h2 class="mb-3">Dine In Transaksi</h2>
+            <div class="col-12">
+                <!-- Shopping Summery -->
+
+                <table class="table shopping-summery">
+                    <thead>
+                        <tr class="main-hading">
+                            <th>Id Transaksi</th>
+                            <th>Tanggal Transaksi</th>
+                            <th class="text-center">Total Pembayaran</th>
+                            <th class="text-center">Status Order</th>
+                            <th class="text-center">Detail</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($status['dinein'] as $key => $value) {
+
+                        ?>
+                            <tr>
+                                <td><strong><?= $value->id_transaksi ?></strong></td>
+                                <td><?= $value->tgl_transaksi ?></td>
+                                <td>Rp. <?= number_format($value->total_bayar)  ?></td>
+                                <td class="text-center">
+                                    <?php
+                                    if ($value->status_order  == '0') {
+                                        echo '<span class="badge badge-danger">Belum Bayar</span>';
+                                    } else if ($value->status_order  == '1') {
+                                        echo '<span class="badge badge-warning">Menunggu Konfirmasi</span>';
+                                    } else if ($value->status_order  == '2') {
+                                        echo '<span class="badge badge-info">Pesanan Diproses</span>';
+                                    } else if ($value->status_order  == '3') {
+                                        echo '<span class="badge badge-primary">Pesanan Dikirim</span>';
+                                    } else if ($value->status_order  == '4') {
+                                        echo '<span class="badge badge-success">Selesai</span>';
+                                    }
+                                    ?>
+
+                                </td>
+                                <td class="text-center"><a href="<?= base_url('Pelanggan/cStatusOrder/detail_pesanan_langsung/' . $value->id_transaksi) ?>"><i class="fa fa-bars" aria-hidden="true"></i></a></td>
+                            </tr>
+
                         <?php
                         } ?>
 

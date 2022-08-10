@@ -17,13 +17,16 @@
         <!-- Topbar -->
         <div class="topbar">
             <div class="container">
+			
+			
                 <div class="row">
                     <div class="col-lg-4 col-md-12 col-12">
                         <!-- Top Left -->
                         <div class="top-left">
                             <ul class="list-main">
-                                <li><i class="ti-headphone-alt"></i> +060 (800) 801-582</li>
-                                <li><i class="ti-email"></i> support@shophub.com</li>
+                                <li><i class="ti-headphone-alt"></i> 0821-2026-6161 </li>
+                                <li><i class="ti-email"></i> kedaifaiz@gmail.com</li>
+								
                             </ul>
                         </div>
                         <!--/ End Top Left -->
@@ -32,8 +35,7 @@
                         <!-- Top Right -->
                         <div class="right-content">
                             <ul class="list-main">
-                                <li><i class="ti-location-pin"></i> Store location</li>
-                                <li><i class="ti-alarm-clock"></i> <a href="#">Daily deal</a></li>
+                               
                                 <li><i class="ti-user"></i> <a href="#">My account</a></li>
                                 <?php
                                 if ($this->session->userdata('id') == '') {
@@ -78,12 +80,7 @@
                     <div class="col-lg-8 col-md-7 col-12">
                         <div class="search-bar-top">
                             <div class="search-bar">
-                                <select>
-                                    <option selected="selected">All Category</option>
-                                    <option>watch</option>
-                                    <option>mobile</option>
-                                    <option>kid’s item</option>
-                                </select>
+
                                 <form>
                                     <input name="search" placeholder="Search Products Here....." type="search">
                                     <button class="btnn"><i class="ti-search"></i></button>

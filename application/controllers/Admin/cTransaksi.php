@@ -8,6 +8,7 @@ class cTransaksi extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Admin/mTransaksi');
+        $this->load->model('Pelanggan/mStatusOrder');
     }
 
 
@@ -97,6 +98,35 @@ class cTransaksi extends CI_Controller
         $this->db->update('transaksi', $data);
         $this->session->set_flashdata('success', 'Pesanan Segera Dikrrim!');
         redirect('Admin/cTransaksi/pesanan_dikirim');
+    }
+    public function pesanan_diterima_admin($id)
+    {
+        $id_pelanggan = $this->input->post('pelanggan');
+        $pelanggan = $this->mStatusOrder->pelanggan($id_pelanggan);
+        $point_sebelumnya = $pelanggan->point;
+
+        $point_update = $point_sebelumnya + $this->input->post('point');
+        //update level member
+        if ($point_update <= 1000) {
+            $member = '3';
+        } else if ($point_update >= 1000) {
+            $member = '2';
+        } else if ($point_update >= 10000) {
+            $member = '1';
+        }
+        $data = array(
+            'point' => $point_update,
+            'level_member' => $member
+        );
+        $this->mStatusOrder->update_point($id_pelanggan, $data);
+
+        $status_order = array(
+            'status_order' => '4'
+        );
+        $this->db->where('id_transaksi', $id);
+        $this->db->update('transaksi', $status_order);
+        $this->session->set_flashdata('success', 'Pesanan Sudah Diterima');
+        redirect('admin/ctransaksi/pesanan_selesai');
     }
 }
 

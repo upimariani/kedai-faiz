@@ -5,12 +5,9 @@ class mStatusOrder extends CI_Model
 {
     public function pesanan()
     {
-        $this->db->select('*');
-        $this->db->from('transaksi');
-        $this->db->join('pengiriman', 'transaksi.id_transaksi = pengiriman.id_transaksi', 'left');
-        $this->db->join('pelanggan', 'transaksi.id_pelanggan = pelanggan.id_pelanggan', 'left');
-        $this->db->where('transaksi.id_pelanggan', $this->session->userdata('id'));
-        return $this->db->get()->result();
+        $data['deliv'] = $this->db->query("SELECT * FROM `transaksi` JOIN pelanggan ON transaksi.id_pelanggan=pelanggan.id_pelanggan JOIN pengiriman ON transaksi.id_transaksi=pengiriman.id_transaksi WHERE type_order='1' AND pelanggan.id_pelanggan=" . $this->session->userdata('id'))->result();
+        $data['dinein'] = $this->db->query("SELECT * FROM `transaksi` JOIN pelanggan ON transaksi.id_pelanggan=pelanggan.id_pelanggan WHERE type_order='2' AND pelanggan.id_pelanggan=" . $this->session->userdata('id'))->result();
+        return $data;
     }
     public function detail_pesanan($id)
     {
@@ -45,6 +42,14 @@ class mStatusOrder extends CI_Model
         $this->db->from('kritik_saran');
         $this->db->join('pelanggan', 'kritik_saran.id_pelanggan = pelanggan.id_pelanggan', 'left');
         return $this->db->get()->result();
+    }
+
+    //transaksi langsung
+    public function detail_pesanan_langsung($id)
+    {
+        $data['pesanan'] = $this->db->query("SELECT * FROM transaksi JOIN detail_transaksi ON transaksi.id_transaksi = detail_transaksi.id_transaksi JOIN diskon ON detail_transaksi.id_diskon = diskon.id_diskon JOIN produk ON diskon.id_produk = produk.id_produk WHERE transaksi.id_transaksi='" . $id . "'")->result();
+        $data['transaksi'] = $this->db->query("SELECT * FROM transaksi JOIN pelanggan ON transaksi.id_pelanggan = pelanggan.id_pelanggan WHERE transaksi.id_transaksi='" . $id . "'")->row();
+        return $data;
     }
 }
 
