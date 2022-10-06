@@ -137,7 +137,7 @@
                                     ?>
                                     <div class="button5">
                                         <a href="<?= base_url('Pelanggan/cCheckout') ?>" class="btn">Checkout</a>
-                                        <button type="submit" class="btn">Pesan Langsung</button>
+                                        <!-- <button type="submit" class="btn">Pesan Langsung</button> -->
                                         <a href="<?= base_url('Pelanggan/cShopGrid') ?>" class="btn">Continue shopping</a>
                                     </div>
                                 </form>

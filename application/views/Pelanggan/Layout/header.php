@@ -17,8 +17,8 @@
         <!-- Topbar -->
         <div class="topbar">
             <div class="container">
-			
-			
+
+
                 <div class="row">
                     <div class="col-lg-4 col-md-12 col-12">
                         <!-- Top Left -->
@@ -26,7 +26,7 @@
                             <ul class="list-main">
                                 <li><i class="ti-headphone-alt"></i> 0821-2026-6161 </li>
                                 <li><i class="ti-email"></i> kedaifaiz@gmail.com</li>
-								
+
                             </ul>
                         </div>
                         <!--/ End Top Left -->
@@ -35,8 +35,8 @@
                         <!-- Top Right -->
                         <div class="right-content">
                             <ul class="list-main">
-                               
-                                <li><i class="ti-user"></i> <a href="#">My account</a></li>
+
+                                <li><i class="ti-user"></i> <a href="#"><?= $this->session->userdata('nm_pel'); ?></a></li>
                                 <?php
                                 if ($this->session->userdata('id') == '') {
                                     echo '<li><i class="ti-power-off"></i><a href="' . base_url('Pelanggan/cLogin') . '">Login</a></li>';

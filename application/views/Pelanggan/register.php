@@ -56,6 +56,13 @@
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
+                                        <div class="form-group first">
+                                            <label for="email">Email *</label>
+                                            <input type="email" name="email" value="<?= set_value('email') ?>" class="form-control" placeholder="Your Email">
+                                            <?= form_error('email', '<small class="text-danger">', '</small>') ?>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
                                         <div class="form-group last mb-3">
                                             <label for="password">Password *</label>
                                             <input type="password" name="password" value="<?= set_value('password') ?>" class="form-control" placeholder="Your Password">

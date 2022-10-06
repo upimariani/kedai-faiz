@@ -17,7 +17,7 @@
     <!-- Style -->
     <link rel="stylesheet" href="<?= base_url('asset/login/') ?>css/style.css">
 
-    <title>LOGIN PELANGGAN</title>
+    <title>NEW PASSWORD</title>
 </head>
 
 <body>
@@ -29,7 +29,7 @@
                     <div class="col-md-12">
                         <div class="form-block mx-auto">
                             <div class="text-center mb-5">
-                                <h3 class="text-uppercase">Login to <strong>Pelanggan</strong></h3>
+                                <h3 class="text-uppercase">New <strong>Password</strong></h3>
                             </div>
                             <?php if ($this->session->userdata('success')) {
                             ?>
@@ -46,22 +46,22 @@
                                 </div>
                             <?php
                             } ?>
-                            <form action="<?= base_url('pelanggan/clogin') ?>" method="post">
-                                <div class="form-group first">
-                                    <label for="username">Username</label>
-                                    <input type="text" name="username" class="form-control" placeholder="Your Username" id="username">
-                                    <?= form_error('username', '<small class="text-danger">', '</small>') ?>
+                            <form action="<?= base_url('pelanggan/clogin/changePassword') ?>" method="post">
+                                <div class="form-group last mb-3">
+                                    <label for="password">Password</label>
+                                    <input type="password" name="password1" class="form-control" placeholder="New Password" id="password1">
+                                    <?= form_error('password', '<small class="text-danger">', '</small>') ?>
                                 </div>
                                 <div class="form-group last mb-3">
                                     <label for="password">Password</label>
-                                    <input type="password" name="password" class="form-control" placeholder="Your Password" id="password">
+                                    <input type="password" name="password2" class="form-control" placeholder="Repeat Password" id="password2">
                                     <?= form_error('password', '<small class="text-danger">', '</small>') ?>
                                 </div>
                                 <small class="text-primary">Anda belum memiliki akun? <a href="<?= base_url('Pelanggan/cLogin/register') ?>">Register!!</a></small>
-                                <input type="submit" value="Log In" class="btn btn-block py-2 btn-primary">
+                                <input type="submit" value="Ganti Password" class="btn btn-block py-2 btn-primary">
                             </form>
                             <br>
-                            <p class="text-center">Lupa Password? <a href="<?= base_url('Pelanggan/cLogin/forgotPassword') ?>">Click Here!!</a></p>
+                            <!-- <p class="text-center">Lupa Password? <a href="<?= base_url('Pelanggan/cLogin/lupa_password') ?>">Click Here!!</a></p> -->
                         </div>
                     </div>
                 </div>

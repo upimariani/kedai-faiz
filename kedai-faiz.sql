@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 02, 2022 at 03:13 AM
--- Server version: 10.4.20-MariaDB
--- PHP Version: 7.4.22
+-- Waktu pembuatan: 05 Okt 2022 pada 08.57
+-- Versi server: 10.4.24-MariaDB
+-- Versi PHP: 7.4.29
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `chatting`
+-- Struktur dari tabel `chatting`
 --
 
 CREATE TABLE `chatting` (
@@ -37,16 +37,19 @@ CREATE TABLE `chatting` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `chatting`
+-- Dumping data untuk tabel `chatting`
 --
 
 INSERT INTO `chatting` (`id_chatting`, `id_pelanggan`, `id_user`, `pelanggan_send`, `admin_send`, `time`) VALUES
-(1, 2, 1, 'hai', NULL, '2022-07-01 23:21:22');
+(1, 2, 1, 'hai', NULL, '2022-07-01 23:21:22'),
+(2, 3, 1, 'Kak', NULL, '2022-07-19 01:48:07'),
+(3, 2, 1, NULL, 'Hi^^ Selamat datang di Kedai Faiz', '2022-07-19 02:01:56'),
+(4, 3, 1, NULL, 'Hi^^ Selamat Datang Di Krdai Faiz.\r\nAda yang bisa saya bantu ?', '2022-07-19 02:02:38');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `detail_transaksi`
+-- Struktur dari tabel `detail_transaksi`
 --
 
 CREATE TABLE `detail_transaksi` (
@@ -57,7 +60,7 @@ CREATE TABLE `detail_transaksi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `detail_transaksi`
+-- Dumping data untuk tabel `detail_transaksi`
 --
 
 INSERT INTO `detail_transaksi` (`id_detail`, `id_transaksi`, `id_diskon`, `qty`) VALUES
@@ -75,12 +78,54 @@ INSERT INTO `detail_transaksi` (`id_detail`, `id_transaksi`, `id_diskon`, `qty`)
 (12, '20220617TXHPGYZZ', 5, 1),
 (13, '20220617TXHPGYZZ', 14, 1),
 (14, '2022070298WQRIAO', 3, 1),
-(15, '2022070298WQRIAO', 12, 1);
+(15, '2022070298WQRIAO', 12, 1),
+(16, '20220719BKCIJUD7', 21, 2),
+(17, '202207239GC0USEW', 12, 3),
+(18, '202207239GC0USEW', 24, 3),
+(19, '202207239GC0USEW', 18, 3),
+(20, '202207239GC0USEW', 33, 2),
+(21, '202207239GC0USEW', 30, 1),
+(22, '20220723PNOJQ6EX', 54, 1),
+(23, '20220723PNOJQ6EX', 18, 1),
+(24, '20220725KGEFPVD3', 54, 2),
+(25, '20220725KGEFPVD3', 9, 1),
+(26, '20220811US0H6Z4S', 14, 1),
+(27, '20220811US0H6Z4S', 20, 1),
+(28, '202209043UFMUH6O', 15, 1),
+(29, '20220911ETLXQ60O', 24, 1),
+(30, '202209118LKEQMDR', 18, 1),
+(31, '20220914CIMUURG1', 24, 1),
+(32, '20220914CIMUURG1', 9, 1),
+(33, '20220914CIMUURG1', 15, 1),
+(34, '20220914CIMUURG1', 42, 1),
+(35, '20220914KVNSAGNI', 6, 1),
+(36, '20220914KVNSAGNI', 18, 1),
+(37, '20220914U2HXNP5V', 3, 1),
+(38, '20220914U2HXNP5V', 36, 1),
+(39, '20220914U2HXNP5V', 42, 1),
+(40, '20221003NMQEGCAO', 6, 1),
+(41, '20221003RPUEL16O', 9, 1),
+(42, '20221003RPUEL16O', 15, 1),
+(43, '20221003Y7PE8GKJ', 9, 1),
+(44, '20221004ZUQLMRPW', 15, 1),
+(45, '20221004CMEJG5YH', 6, 1),
+(46, '20221004CMEJG5YH', 9, 1),
+(47, '202210041QFPYWDC', 3, 1),
+(48, '202210041QFPYWDC', 6, 1),
+(49, '202210041QFPYWDC', 12, 1),
+(50, '20221004W7URKPFE', 3, 1),
+(51, '20221004W7URKPFE', 6, 1),
+(52, '20221004W7URKPFE', 9, 1),
+(53, '20221004RN1CND6Q', 3, 1),
+(54, '20221004RN1CND6Q', 6, 1),
+(55, '20221005H04OT9UY', 6, 1),
+(56, '20221005H04OT9UY', 15, 1),
+(57, '20221005OABQLC6N', 3, 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `diskon`
+-- Struktur dari tabel `diskon`
 --
 
 CREATE TABLE `diskon` (
@@ -93,21 +138,21 @@ CREATE TABLE `diskon` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `diskon`
+-- Dumping data untuk tabel `diskon`
 --
 
 INSERT INTO `diskon` (`id_diskon`, `id_produk`, `nama_diskon`, `tgl_selesai`, `diskon`, `member`) VALUES
 (1, 'aro23', '0', '0', 0, 1),
-(2, 'aro23', 'Every Day', '2022-06-30', 8, 2),
+(2, 'aro23', 'Meriah', '2022-07-25', 10, 2),
 (3, 'aro23', '0', '0', 0, 3),
 (4, 'U9iqB', '0', '0', 0, 1),
-(5, 'U9iqB', '0', '0', 0, 2),
+(5, 'U9iqB', 'liburan', '2022-09-15', 50, 2),
 (6, 'U9iqB', '0', '0', 0, 3),
 (7, 'yM4nr', '0', '0', 0, 1),
 (8, 'yM4nr', '0', '0', 0, 2),
 (9, 'yM4nr', '0', '0', 0, 3),
 (10, '5X8Ak', '0', '0', 0, 1),
-(11, '5X8Ak', '0', '0', 0, 2),
+(11, '5X8Ak', 'mantan', '2022-09-17', 50, 2),
 (12, '5X8Ak', 'Every Day', '2022-07-28', 5, 3),
 (13, 'rH1m7', '0', '0', 0, 1),
 (14, 'rH1m7', '0', '0', 0, 2),
@@ -153,12 +198,21 @@ INSERT INTO `diskon` (`id_diskon`, `id_produk`, `nama_diskon`, `tgl_selesai`, `d
 (54, 'VG43t', 'Every Day', '2022-07-27', 5, 3),
 (55, 'ofUQL', '0', '0', 0, 1),
 (56, 'ofUQL', '0', '0', 0, 2),
-(57, 'ofUQL', '0', '0', 0, 3);
+(57, 'ofUQL', '0', '0', 0, 3),
+(58, 'STV2e', '0', '0', 0, 1),
+(59, 'STV2e', '0', '0', 0, 2),
+(60, 'STV2e', '0', '0', 0, 3),
+(61, 'ABRuf', '0', '0', 0, 1),
+(62, 'ABRuf', '0', '0', 0, 2),
+(63, 'ABRuf', '0', '0', 0, 3),
+(64, 'MWf5C', '0', '0', 0, 1),
+(65, 'MWf5C', '0', '0', 0, 2),
+(66, 'MWf5C', '0', '0', 0, 3);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `kategori`
+-- Struktur dari tabel `kategori`
 --
 
 CREATE TABLE `kategori` (
@@ -167,7 +221,7 @@ CREATE TABLE `kategori` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `kategori`
+-- Dumping data untuk tabel `kategori`
 --
 
 INSERT INTO `kategori` (`id_kategori`, `nama_kategori`) VALUES
@@ -177,7 +231,7 @@ INSERT INTO `kategori` (`id_kategori`, `nama_kategori`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `kecamatan`
+-- Struktur dari tabel `kecamatan`
 --
 
 CREATE TABLE `kecamatan` (
@@ -188,7 +242,7 @@ CREATE TABLE `kecamatan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `kecamatan`
+-- Dumping data untuk tabel `kecamatan`
 --
 
 INSERT INTO `kecamatan` (`id_kecamatan`, `kode`, `nm_kecamatan`, `ongkir`) VALUES
@@ -224,52 +278,12 @@ INSERT INTO `kecamatan` (`id_kecamatan`, `kode`, `nm_kecamatan`, `ongkir`) VALUE
 (30, 1, 'pasawahan', '35000'),
 (31, 1, 'selajambe', '35000'),
 (32, 1, 'sindangagung', '25000'),
-(33, 1, 'subang', '35000'),
-(34, 2, 'arjawinangun', '50000'),
-(35, 2, 'astanajapura', '51000'),
-(36, 2, 'babakan', '52000'),
-(37, 2, 'beber', '53000'),
-(38, 2, 'Ciledug', '54000'),
-(39, 2, 'Ciwaringin', '55000'),
-(40, 2, 'Depok', '56000'),
-(41, 2, 'Dukupuntang', '57000'),
-(42, 2, 'Gebang', '58000'),
-(43, 2, 'Gegesik', '59000'),
-(44, 2, 'Gempol', '60000'),
-(45, 2, 'Greged', '61000'),
-(46, 2, 'Gunungjati', '62000'),
-(47, 2, 'Jamblang', '63000'),
-(48, 2, 'Kaliwedi', '64000'),
-(49, 2, 'Kapetakan', '65000'),
-(50, 2, 'Karangsembung', '66000'),
-(51, 2, 'Karangwareng', '67000'),
-(52, 2, 'Kedawung', '68000'),
-(53, 2, 'Klangenan', '69000'),
-(54, 2, 'Lemahabang', '70000'),
-(55, 2, 'Losari', '71000'),
-(56, 2, 'Mundu', '72000'),
-(57, 2, 'Pabedilan', '73000'),
-(58, 2, 'Pabuaran', '74000'),
-(59, 2, 'Palimanan', '75000'),
-(60, 2, 'Pangenan', '76000'),
-(61, 2, 'Panguragan', '78000'),
-(62, 2, 'Pasaleman', '79000'),
-(63, 2, 'Plered', '80000'),
-(64, 2, 'Plumbon', '81000'),
-(65, 2, 'Sedong', '82000'),
-(66, 2, 'Sumber', '83000'),
-(67, 2, 'Suranenggala', '84000'),
-(68, 2, 'Susukan', '85000'),
-(69, 2, 'Susukanlebak', '86000'),
-(70, 2, 'Talun', '87000'),
-(71, 2, 'Tengahtani', '88000'),
-(72, 2, 'Waled', '89000'),
-(73, 2, 'Weru', '90000');
+(33, 1, 'subang', '35000');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `kritik_saran`
+-- Struktur dari tabel `kritik_saran`
 --
 
 CREATE TABLE `kritik_saran` (
@@ -281,17 +295,18 @@ CREATE TABLE `kritik_saran` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `kritik_saran`
+-- Dumping data untuk tabel `kritik_saran`
 --
 
 INSERT INTO `kritik_saran` (`id_kritik`, `id_pelanggan`, `id_user`, `isi_kritik`, `jawab_kritik`) VALUES
 (1, 2, 1, 'produk sangat recommded', NULL),
-(2, 2, 1, NULL, 'bagus');
+(2, 2, 1, NULL, 'bagus'),
+(3, 3, 1, 'Mantapppp', NULL);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pelanggan`
+-- Struktur dari tabel `pelanggan`
 --
 
 CREATE TABLE `pelanggan` (
@@ -300,23 +315,25 @@ CREATE TABLE `pelanggan` (
   `alamat` text NOT NULL,
   `no_tlpon` varchar(15) NOT NULL,
   `username` varchar(125) NOT NULL,
+  `email` varchar(125) DEFAULT NULL,
   `password` varchar(125) NOT NULL,
   `level_member` int(11) NOT NULL,
-  `point` int(11) NOT NULL
+  `point` int(11) NOT NULL,
+  `rol_id` int(11) DEFAULT NULL,
+  `is_active` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `pelanggan`
+-- Dumping data untuk tabel `pelanggan`
 --
 
-INSERT INTO `pelanggan` (`id_pelanggan`, `nm_pel`, `alamat`, `no_tlpon`, `username`, `password`, `level_member`, `point`) VALUES
-(1, 'Salsa', 'ciawigebanhg, kuningan', '0875698745633', 'pelanggan', 'pelanggan', 2, 1761),
-(2, 'Dahlan', 'LINK.KRAMAT JAYA RT/RW 007/003', '085156727368', 'dahlan', 'dahlan123', 3, 785);
+INSERT INTO `pelanggan` (`id_pelanggan`, `nm_pel`, `alamat`, `no_tlpon`, `username`, `email`, `password`, `level_member`, `point`, `rol_id`, `is_active`) VALUES
+(1, 'hana', 'Kuningan', '0891291829182', 'hana', 'rizkihasbiallah06@gmail.com', '123456789', 3, 735, 2, 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pengiriman`
+-- Struktur dari tabel `pengiriman`
 --
 
 CREATE TABLE `pengiriman` (
@@ -331,7 +348,7 @@ CREATE TABLE `pengiriman` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `pengiriman`
+-- Dumping data untuk tabel `pengiriman`
 --
 
 INSERT INTO `pengiriman` (`id_pengiriman`, `id_transaksi`, `rt`, `rw`, `ongkir`, `alamat_pengiriman`, `id_kecamatan`, `kota`) VALUES
@@ -341,12 +358,21 @@ INSERT INTO `pengiriman` (`id_pengiriman`, `id_transaksi`, `rt`, `rw`, `ongkir`,
 (4, '20220617LCJDXWAI', '12', '34', '7000', 'Ciawigebang, Kuningan', '23', '1'),
 (5, '20220617TXHPGYZZ', '12', '2', '68000', 'cirebon kedawung', '52', '2'),
 (6, '20220702QNC4WSFL', '12', '03', '9000', 'Ciawigebang, Kuningan', '17', '1'),
-(7, '2022070298WQRIAO', '12', '03', '10000', 'Ciawigebang, Kuningan', '1', '1');
+(7, '2022070298WQRIAO', '12', '03', '10000', 'Ciawigebang, Kuningan', '1', '1'),
+(8, '20220719BKCIJUD7', '01', '05', '26000', 'Dusun Oleced Kec. Lebakwangi. Sebrang Pom Bensin Oleced', '24', '1'),
+(9, '202207239GC0USEW', '05', '05', '7000', 'Kuningan', '23', '1'),
+(10, '20220723PNOJQ6EX', '01', '01', '26000', 'Manggarin', '24', '1'),
+(11, '20220725KGEFPVD3', '05', '02', '53000', 'Jl.beber baru no.45', '37', '2'),
+(12, '20220911ETLXQ60O', '', '', '64000', 'jerman', '48', '2'),
+(13, '202209118LKEQMDR', '', '', '21000', 'Kuningan', '14', '1'),
+(14, '20220914CIMUURG1', '', '', '20000', 'Kuningan', '15', '1'),
+(15, '20220914KVNSAGNI', '', '', '16000', 'Kuningan', '19', '1'),
+(16, '20220914U2HXNP5V', '', '', '59000', 'Kuningan', '43', '2');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `produk`
+-- Struktur dari tabel `produk`
 --
 
 CREATE TABLE `produk` (
@@ -361,33 +387,34 @@ CREATE TABLE `produk` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `produk`
+-- Dumping data untuk tabel `produk`
 --
 
 INSERT INTO `produk` (`id_produk`, `id_kategori`, `nama_produk`, `deskripsi`, `harga`, `stok`, `tipe`, `gambar`) VALUES
-('5X8Ak', 1, 'Curry Beef', 'Beef Curry ala Medannn', '30000', 20, 1, 'Berburu_Kuliner_Legendaris_Di_Medan,_Yuk!.jpg'),
-('aro23', 1, 'Steak Beef', 'Steak Beef Tenderoin Kualitas No.1', '50000', 12, 1, '52e173da-9bfa-4752-b6ad-5e3b8714577f.jpg'),
-('cb9B0', 1, 'Farafe Blubery Delight', 'Sugar Rush Bluberry', '50000', 30, 2, '37f8d33cc58ddc3ef01863eba0dc4286.jpg'),
-('D2de9', 1, 'Food Photography', 'Noodle, Egg and ACARR', '35000', 25, 1, 'Food_Photography.jpg'),
-('hUlqv', 2, 'Coffe milk ', 'Coffe Milk Original Tasteee', '26000', 30, 1, 'dfdfd.jpg'),
-('k3Rjx', 1, 'Curry Papeda', 'Resep Kiriman Pembaca JTT - Papeda, The Delicious Papua!', '38000', 30, 1, 'Kuliner_Rumah_Makan_Padang_Kedai_Nasi_Pauh_Piaman1.jpg'),
-('KWifa', 1, 'Bakmi Ayam', 'Food Bakmi ayamm', '20000', 30, 1, 'KEDAI_BAKMI_AYAM_MPOK_LALA.jpg'),
-('njVMY', 1, 'Lunch Together Salad', 'Paket lunch together', '60000', 30, 2, '77d24b7e201f2fb946211281d40a373e.jpg'),
+('5X8Ak', 1, 'Ayam Goreng', 'Ayam Goreng Renyah + Sambel lalab', '15000', 25, 1, 'ayam_goreng.jpg'),
+('ABRuf', 2, 'Nutrisari', 'Minuman Nutrisari Jeruk', '5000', 20, 1, 'Nutrisari.jpg'),
+('aro23', 1, 'Paket Burung Puyuh', 'Paket nasi burung puyuh goreng renyah', '21000', 15, 2, 'burungpuyuh1.jpg'),
+('cb9B0', 1, 'Cireng', 'Cireng Goreng  Kedai Faiz', '1000', 70, 1, 'cireng.jpg'),
+('D2de9', 2, 'MiloJel', 'Drink Milo Jelly', '10000', 25, 1, 'Milojel.jpg'),
+('hUlqv', 2, 'Coffe milk ', 'Coffe Milk Original Tasteee', '12000', 30, 1, 'dfdfd.jpg'),
+('k3Rjx', 1, 'Rujak Kangkung', 'Rujak Kangkung manis pedas ', '5000', 30, 1, 'kangkung.jpg'),
+('KWifa', 1, 'Mie Ayam Hot Spesial', 'Food Mie ayamm ', '20000', 30, 1, 'KEDAI_BAKMI_AYAM_MPOK_LALA.jpg'),
+('MWf5C', 2, 'vietnam drink', 'ok', '15000', 40, 1, 'b21.jpg'),
 ('NPkJ9', 0, 'Roti Bakar', 'Roti Bakar Abang-abang versi Sandwich', '35000', 40, 1, 'Roti_Bakar_Abang-abang_versi_Sandwich.jpg'),
-('rH1m7', 1, 'Fish Streat', 'Fish Streat, Solusi Makan Fish Chips Enak Tanpa Menguras Kantong', '45000', 20, 1, 'Fish_Streat,_Solusi_Makan_Fish_Chips_Enak_Tanpa_Menguras_Kantong.jpg'),
-('TE5O1', 0, 'Paruh', 'Kuliner Rumah Makan Padang Kedai Nasi Pauh Piaman', '50000', 25, 1, 'Kuliner_Rumah_Makan_Padang_Kedai_Nasi_Pauh_Piaman.jpg'),
-('tFnL4', 2, 'Hot Coffee', 'Hot Coffee, lifestyle', '29000', 20, 1, 'Hot_Coffee,_lifestyle.jpg'),
-('U9iqB', 1, 'Chicken Noodle', 'Noodle, Vegetable, Spicy hoootttt', '20000', 50, 1, '771a52d6-10b3-40bc-ab1c-7fa5f359e08e.jpg'),
-('uqZ1s', 2, 'V60', 'Coffe original taste...', '36000', 20, 1, 'af24397b-d1f2-47f6-85f4-11665cdcdf39.jpg'),
-('VG43t', 1, 'Suki Time', 'Paket Suki ', '135000', 20, 2, '4642a485cc4a35e678f0a87b60aa6d15.jpg'),
-('WPAI9', 2, 'Coffe Latte', 'Drink Cofffe Late Frezeee', '25000', 40, 1, '7e5646a7-9c53-44a3-a660-3c943f4ba186.jpg'),
-('yM4nr', 1, 'Meet Ball Yamin', 'Meet ball spicyy hooottt, versi YAMINN', '25000', 30, 1, 'Bakso_Telur,_Sumsum,_Rawit_Rusuk.jpg'),
-('zZL5X', 1, 'Takoyaki Paket Crumble', 'Cruble white spicy', '30000', 12, 2, '01e473522a5e61c5b281646d61562ac4.jpg');
+('rH1m7', 1, 'Burung Puyuh Goreng', 'Burung Puyuh Goreng + Sambel Lalab', '15000', 20, 1, 'Burungpuyuh.jpg'),
+('STV2e', 2, 'Pop Ice Coklat', 'Blend Pop Ice Coklat', '6000', 50, 1, 'popice_coklat.jpg'),
+('TE5O1', 1, 'Paket Ayam Bakar', 'Paket nasi ayam bakar manis pedas', '21000', 25, 2, '62e6e38bc36889ee657d2902b15a4551.jpg'),
+('tFnL4', 2, 'Hot Coffee', 'Hot Coffee, lifestyle', '11000', 20, 1, 'Hot_Coffee,_lifestyle.jpg'),
+('U9iqB', 1, 'Ayam Bakar', 'Ayam Bakar + Sambel Lalab', '15000', 50, 1, 'Ayambakar.jpg'),
+('uqZ1s', 2, 'Pop Ice Strawberry', 'Drink Strawberry Popice', '6000', 45, 1, 'popice_strawwberry.jpg'),
+('VG43t', 1, 'Paket Ayam Goreng', 'Paket Ayam Goreng renyah', '21000', 20, 2, 'Paketayamgoreng.jpg'),
+('WPAI9', 2, 'Milo Milk', 'Drink Milo Milk', '10000', 40, 1, '7e5646a7-9c53-44a3-a660-3c943f4ba186.jpg'),
+('yM4nr', 1, 'Meet Ball Yamin', 'Meet ball spicyy hooottt, versi YAMINN', '25000', 30, 1, 'Bakso_Telur,_Sumsum,_Rawit_Rusuk.jpg');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `transaksi`
+-- Struktur dari tabel `transaksi`
 --
 
 CREATE TABLE `transaksi` (
@@ -396,25 +423,41 @@ CREATE TABLE `transaksi` (
   `tgl_transaksi` varchar(15) NOT NULL,
   `total_bayar` varchar(15) NOT NULL,
   `status_order` int(11) NOT NULL,
+  `type_order` int(11) NOT NULL DEFAULT 1,
   `bukti_pembayaran` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `transaksi`
+-- Dumping data untuk tabel `transaksi`
 --
 
-INSERT INTO `transaksi` (`id_transaksi`, `id_pelanggan`, `tgl_transaksi`, `total_bayar`, `status_order`, `bukti_pembayaran`) VALUES
-('20220531BFYO4P6M', 1, '2022-05-31', '75000', 4, 'Ini-Dia-Bukti-Transfer-Mandiri-Dari-ATM-mBanking-dan-Internet-Banking-Mandiri-1.jpg'),
-('20220531HILMNM1K', 1, '2022-05-31', '75000', 2, '31084499740-bukti_transfer.jpg'),
-('20220617BINJSFHC', 1, '2022-06-18', '52200', 4, '0'),
-('20220617LCJDXWAI', 1, '2022-06-17', '202200', 0, '0'),
-('20220617TXHPGYZZ', 2, '2022-06-17', '157000', 4, '31084499740-bukti_transfer1.jpg'),
-('2022070298WQRIAO', 2, '2022-07-02', '78500', 0, '0');
+INSERT INTO `transaksi` (`id_transaksi`, `id_pelanggan`, `tgl_transaksi`, `total_bayar`, `status_order`, `type_order`, `bukti_pembayaran`) VALUES
+('20220531BFYO4P6M', 1, '2022-05-31', '75000', 4, 1, 'Ini-Dia-Bukti-Transfer-Mandiri-Dari-ATM-mBanking-dan-Internet-Banking-Mandiri-1.jpg'),
+('20220531HILMNM1K', 1, '2022-05-31', '75000', 4, 1, '31084499740-bukti_transfer.jpg'),
+('20220617BINJSFHC', 1, '2022-06-18', '52200', 4, 1, '0'),
+('20220617LCJDXWAI', 1, '2022-06-17', '202200', 3, 1, 'a1.jpg'),
+('20220617TXHPGYZZ', 2, '2022-06-17', '157000', 4, 1, '31084499740-bukti_transfer1.jpg'),
+('2022070298WQRIAO', 2, '2022-07-02', '78500', 0, 1, '0'),
+('20220719BKCIJUD7', 3, '2022-07-19', '40000', 4, 1, 'Bukti-Transfer-BRI-Terbaru-dan-Terlengkap.jpg'),
+('202207239GC0USEW', 4, '2022-07-23', '190750', 4, 1, 'images_(1).jpg'),
+('20220723PNOJQ6EX', 3, '2022-07-23', '29950', 0, 1, '0'),
+('20220725KGEFPVD3', 6, '2022-07-25', '64900', 4, 1, 'Nutrisari.jpg'),
+('20220811US0H6Z4S', 1, '2022-08-11', '35000', 4, 2, '0'),
+('202209043UFMUH6O', 1, '2022-09-04', '15000', 4, 2, '0'),
+('202209118LKEQMDR', 1, '2022-09-11', '10000', 4, 1, 'b2.jpg'),
+('20220911ETLXQ60O', 1, '2022-09-11', '21000', 0, 1, '0'),
+('20220914CIMUURG1', 1, '2022-09-14', '73000', 4, 1, 'b.jpg'),
+('20220914KVNSAGNI', 1, '2022-09-14', '25000', 4, 1, 'b1.jpg'),
+('20220914U2HXNP5V', 1, '2022-09-14', '39000', 4, 1, 'WhatsApp_Image_2022-08-03_at_08_41_37_(1).jpeg'),
+('20221004RN1CND6Q', 1, '2022-10-04', '36000', 4, 2, '0'),
+('20221004W7URKPFE', 1, '2022-10-04', '61000', 4, 2, '0'),
+('20221005H04OT9UY', 1, '2022-10-05', '30000', 4, 2, '0'),
+('20221005OABQLC6N', 1, '2022-10-05', '21000', 4, 2, '0');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Struktur dari tabel `user`
 --
 
 CREATE TABLE `user` (
@@ -428,139 +471,171 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `user`
+-- Dumping data untuk tabel `user`
 --
 
 INSERT INTO `user` (`id_user`, `nama_user`, `alamat`, `no_hp`, `username`, `password`, `level_user`) VALUES
 (1, 'Admin', 'Kuningan Jawa Barat', '085156727368', 'admin', 'admin', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `user_token`
+--
+
+CREATE TABLE `user_token` (
+  `id` int(11) NOT NULL,
+  `email` varchar(128) NOT NULL,
+  `token` varchar(128) NOT NULL,
+  `date_created` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `user_token`
+--
+
+INSERT INTO `user_token` (`id`, `email`, `token`, `date_created`) VALUES
+(2, 'rizkihasbiallah06@gmail.com', 'vwt0QUJEv7pV/BizG8LaFodKFz4jvtLblohd0uFQBws=', 1662248920);
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `chatting`
+-- Indeks untuk tabel `chatting`
 --
 ALTER TABLE `chatting`
   ADD PRIMARY KEY (`id_chatting`);
 
 --
--- Indexes for table `detail_transaksi`
+-- Indeks untuk tabel `detail_transaksi`
 --
 ALTER TABLE `detail_transaksi`
   ADD PRIMARY KEY (`id_detail`);
 
 --
--- Indexes for table `diskon`
+-- Indeks untuk tabel `diskon`
 --
 ALTER TABLE `diskon`
   ADD PRIMARY KEY (`id_diskon`);
 
 --
--- Indexes for table `kategori`
+-- Indeks untuk tabel `kategori`
 --
 ALTER TABLE `kategori`
   ADD PRIMARY KEY (`id_kategori`);
 
 --
--- Indexes for table `kecamatan`
+-- Indeks untuk tabel `kecamatan`
 --
 ALTER TABLE `kecamatan`
   ADD PRIMARY KEY (`id_kecamatan`);
 
 --
--- Indexes for table `kritik_saran`
+-- Indeks untuk tabel `kritik_saran`
 --
 ALTER TABLE `kritik_saran`
   ADD PRIMARY KEY (`id_kritik`);
 
 --
--- Indexes for table `pelanggan`
+-- Indeks untuk tabel `pelanggan`
 --
 ALTER TABLE `pelanggan`
   ADD PRIMARY KEY (`id_pelanggan`);
 
 --
--- Indexes for table `pengiriman`
+-- Indeks untuk tabel `pengiriman`
 --
 ALTER TABLE `pengiriman`
   ADD PRIMARY KEY (`id_pengiriman`);
 
 --
--- Indexes for table `produk`
+-- Indeks untuk tabel `produk`
 --
 ALTER TABLE `produk`
   ADD PRIMARY KEY (`id_produk`);
 
 --
--- Indexes for table `transaksi`
+-- Indeks untuk tabel `transaksi`
 --
 ALTER TABLE `transaksi`
   ADD PRIMARY KEY (`id_transaksi`);
 
 --
--- Indexes for table `user`
+-- Indeks untuk tabel `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id_user`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- Indeks untuk tabel `user_token`
+--
+ALTER TABLE `user_token`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `chatting`
+-- AUTO_INCREMENT untuk tabel `chatting`
 --
 ALTER TABLE `chatting`
-  MODIFY `id_chatting` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_chatting` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `detail_transaksi`
+-- AUTO_INCREMENT untuk tabel `detail_transaksi`
 --
 ALTER TABLE `detail_transaksi`
-  MODIFY `id_detail` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id_detail` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 
 --
--- AUTO_INCREMENT for table `diskon`
+-- AUTO_INCREMENT untuk tabel `diskon`
 --
 ALTER TABLE `diskon`
-  MODIFY `id_diskon` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
+  MODIFY `id_diskon` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
 
 --
--- AUTO_INCREMENT for table `kategori`
+-- AUTO_INCREMENT untuk tabel `kategori`
 --
 ALTER TABLE `kategori`
   MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `kecamatan`
+-- AUTO_INCREMENT untuk tabel `kecamatan`
 --
 ALTER TABLE `kecamatan`
-  MODIFY `id_kecamatan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
+  MODIFY `id_kecamatan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
 
 --
--- AUTO_INCREMENT for table `kritik_saran`
+-- AUTO_INCREMENT untuk tabel `kritik_saran`
 --
 ALTER TABLE `kritik_saran`
-  MODIFY `id_kritik` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_kritik` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `pelanggan`
+-- AUTO_INCREMENT untuk tabel `pelanggan`
 --
 ALTER TABLE `pelanggan`
-  MODIFY `id_pelanggan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_pelanggan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `pengiriman`
+-- AUTO_INCREMENT untuk tabel `pengiriman`
 --
 ALTER TABLE `pengiriman`
-  MODIFY `id_pengiriman` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_pengiriman` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
--- AUTO_INCREMENT for table `user`
+-- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT untuk tabel `user_token`
+--
+ALTER TABLE `user_token`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

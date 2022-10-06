@@ -25,7 +25,7 @@
 
                         <hr class="my-4" />
 
-                        <div class="row mb-4">
+                        <!-- <div class="row mb-4">
                             <div class="col-md-6">
                                 <div class="text-muted">Client</div>
                                 <strong>
@@ -44,17 +44,7 @@
 
                                 </p>
                             </div>
-                            <div class="col-md-6 text-md-right">
-                                <div class="text-muted">Alamat Pengiriman</div>
-                                <strong>
-                                    <?= $detail['transaksi']->nm_kecamatan ?>
-                                </strong>
-                                <p>
-                                    RT.<?= $detail['transaksi']->rt ?> <br> RW.<?= $detail['transaksi']->rw ?> <br> <?= $detail['transaksi']->alamat ?>
-
-                                </p>
-                            </div>
-                        </div>
+                        </div> -->
 
                         <table class="table table-sm">
                             <thead>
@@ -88,34 +78,26 @@
                                     <th>Subtotal </th>
                                     <th class="text-right">Rp. <?= number_format($detail['transaksi']->total_bayar)  ?></th>
                                 </tr>
-                                <tr>
-                                    <th>&nbsp;</th>
-                                    <th>&nbsp;</th>
-                                    <th>&nbsp;</th>
-                                    <th>Shipping </th>
-                                    <th class="text-right">Rp. <?= number_format($detail['transaksi']->ongkir)  ?></th>
-                                </tr>
-                                <tr>
-                                    <th>&nbsp;</th>
-                                    <th>&nbsp;</th>
-                                    <th>&nbsp;</th>
-                                    <th>Total </th>
-                                    <th class="text-right">Rp. <?= number_format($detail['transaksi']->total_bayar + $detail['transaksi']->ongkir)  ?></th>
-                                </tr>
                             </tbody>
                         </table>
-
-                        <?php echo form_open('Admin/cTransaksi/pesanan_diterima_admin/' . $detail['transaksi']->id_transaksi); ?>
-                        <input type="hidden" name="pelanggan" value="<?= $detail['transaksi']->id_pelanggan ?>">
-                        <input type="hidden" name="total_belanja" value="<?= $detail['transaksi']->total_bayar ?>">
                         <?php
-                        $point = 0;
-                        $point = (0.5 / 100) * $detail['transaksi']->total_bayar;
-
+                        if ($detail['transaksi']->status_order == 0) {
                         ?>
-                        <input type="hidden" name="point" value="<?= $point ?>">
-                        <button type="submit" class="btn btn-success mt-3">Konfirmasi</button>
-                        </form>
+                            <?php echo form_open('Admin/cTransaksiLangsung/konfirmasi_selesai/' . $detail['transaksi']->id_transaksi); ?>
+                            <input type="hidden" name="pelanggan" value="<?= $detail['transaksi']->id_pelanggan ?>">
+                            <input type="hidden" name="total_belanja" value="<?= $detail['transaksi']->total_bayar ?>">
+                            <?php
+                            $point = 0;
+                            $point = (0.5 / 100) * $detail['transaksi']->total_bayar;
+
+                            ?>
+                            <input type="hidden" name="point" value="<?= $point ?>">
+                            <button type="submit" class="btn btn-success mt-3">Konfirmasi</button>
+                            </form>
+                        <?php
+                        }
+                        ?>
+
                     </div>
                 </div>
             </div>

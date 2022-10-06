@@ -35,15 +35,15 @@
                             </thead>
                             <tbody class="table-border-bottom-0">
                                 <?php
-                                foreach ($transaksi['pesanan'] as $key => $value) {
+                                foreach ($transaksi['selesai'] as $key => $value) {
                                 ?>
                                     <tr>
                                         <td><?= $value->id_transaksi ?></td>
-                                        <td><?= $value->nm_pel ?></td>
+                                        <td>Admin</td>
                                         <td><?= $value->tgl_transaksi ?></td>
                                         <td>Rp. <?= number_format($value->total_bayar)  ?></td>
-                                        <td><span class="badge bg-warning">menunggu konfirmasi</span> <a href="<?= base_url('Admin/cTransaksi/konfirmasi/' . $value->id_transaksi) ?>" class="btn btn-success">Konfirmasi</a></td>
-                                        <td><a href="<?= base_url('Admin/cTransaksi/detail_pesanan/' . $value->id_transaksi) ?>"> <i class="bx bx-dots-vertical-rounded"></i></a></td>
+                                        <td><span class="badge bg-success">Selesai</span> </td>
+                                        <td><a href="<?= base_url('Admin/cTransaksiLangsung/detail_pesanan_langsung/' . $value->id_transaksi) ?>"> <i class="bx bx-dots-vertical-rounded"></i></a></td>
                                     </tr>
                                 <?php
                                 }
