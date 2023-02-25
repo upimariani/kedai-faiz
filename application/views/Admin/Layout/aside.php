@@ -61,10 +61,27 @@
                             <div data-i18n="Analytics">Dashboard</div>
                         </a>
                     </li>
-
-
                     <li class="menu-header small text-uppercase">
-                        <span class="menu-header-text">Produk</span>
+                        <span class="menu-header-text">USER</span>
+                    </li>
+                    <li class="menu-item <?php if ($this->uri->segment(1) == 'Admin' && $this->uri->segment(2) == 'cUser') {
+                                                echo 'active';
+                                            }  ?>">
+                        <a href="<?= base_url('Admin/cUser') ?>" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-user"></i>
+                            <div data-i18n="Basic">Admin</div>
+                        </a>
+                    </li>
+                    <li class="menu-item <?php if ($this->uri->segment(1) == 'Admin' && $this->uri->segment(2) == 'cPelanggan') {
+                                                echo 'active';
+                                            }  ?>">
+                        <a href="<?= base_url('Admin/cPelanggan') ?>" class="menu-link">
+                            <i class='menu-icon bx bxs-user-check'></i>
+                            <div data-i18n="Basic">Pelanggan</div>
+                        </a>
+                    </li>
+                    <li class="menu-header small text-uppercase">
+                        <span class="menu-header-text">PRODUK</span>
                     </li>
                     <li class="menu-item <?php if ($this->uri->segment(1) == 'Admin' && $this->uri->segment(2) == 'cKategori') {
                                                 echo 'active';
@@ -90,14 +107,7 @@
                             <div data-i18n="Basic">Diskon</div>
                         </a>
                     </li>
-                    <li class="menu-item <?php if ($this->uri->segment(1) == 'Admin' && $this->uri->segment(2) == 'cUser') {
-                                                echo 'active';
-                                            }  ?>">
-                        <a href="<?= base_url('Admin/cUser') ?>" class="menu-link">
-                            <i class="menu-icon tf-icons bx bx-user"></i>
-                            <div data-i18n="Basic">User</div>
-                        </a>
-                    </li>
+
                     <li class="menu-item <?php if ($this->uri->segment(1) == 'Admin' && $this->uri->segment(2) == 'cOngkir') {
                                                 echo 'active';
                                             }  ?>">

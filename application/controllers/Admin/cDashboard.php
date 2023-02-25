@@ -14,7 +14,8 @@ class cDashboard extends CI_Controller
     {
         $data = array(
             'stok' => $this->mDashboard->stok_produk(),
-            'chatting' => $this->mDashboard->chatting()
+            'chatting' => $this->mDashboard->chatting(),
+            'kritik' => $this->mDashboard->kritik_saran()
         );
         $this->load->view('Admin/Layout/head');
         $this->load->view('Admin/Layout/aside');
@@ -43,6 +44,16 @@ class cDashboard extends CI_Controller
         );
         $this->db->insert('chatting', $data);
         redirect('Admin/cDashboard/view_chatting/' . $id);
+    }
+    public function balas_kritik()
+    {
+        $data = array(
+            'id_pelanggan' => '1',
+            'id_user' => $this->session->userdata('id'),
+            'jawab_kritik' => $this->input->post('balas')
+        );
+        $this->db->insert('kritik_saran', $data);
+        redirect('Admin/cDashboard');
     }
 }
 

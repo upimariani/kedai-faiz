@@ -101,7 +101,7 @@ if ($this->session->userdata('success')) {
                                     <select>
                                         <option selected="selected">Name</option>
                                         <option>Price</option>
-                                       
+
                                     </select>
                                 </div>
                             </div>
@@ -129,7 +129,7 @@ if ($this->session->userdata('success')) {
                                 <input type="hidden" name="diskon" value="<?= $value->diskon ?>">
                                 <div class="single-product">
                                     <div class="product-img">
-                                        <a href="product-details.html">
+                                        <a>
                                             <img class="default-img" style="width: 550px; height: 350px;" src="<?= base_url('asset/foto-produk/' . $value->gambar) ?>" alt="#">
                                             <img class="hover-img" style="width: 550px; height: 350px;" src="<?= base_url('asset/foto-produk/' . $value->gambar) ?>" alt="#">
                                             <?php
@@ -143,12 +143,17 @@ if ($this->session->userdata('success')) {
                                         </a>
                                         <div class="button-head">
                                             <div class="product-action">
+
+                                                <a data-toggle="modal" data-target="#exampleModal<?= $value->id_diskon ?>" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>
+                                            </div>
+                                            <div class="product-actio-2">
+
                                                 <button type="submit" class="btn btn-light" title="Add to cart">Add to cart</button>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="product-content">
-                                        <h3><a href="product-details.html"><?= $value->nama_produk ?></a></h3>
+                                        <h3><a><?= $value->nama_produk ?></a></h3>
                                         <div class="product-price">
                                             <span>Rp. <?= number_format($value->harga - ($value->harga * $value->diskon / 100), 0) ?></span>
                                             <?php
@@ -175,122 +180,90 @@ if ($this->session->userdata('success')) {
 
 <!-- Start Shop Newsletter  -->
 
-                </div>
-            </div>
-        </div>
-    </div>
+</div>
+</div>
+</div>
+</div>
 </section>
 <!-- End Shop Newsletter -->
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="ti-close" aria-hidden="true"></span></button>
-            </div>
-            <div class="modal-body">
-                <div class="row no-gutters">
-                    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
-                        <!-- Product Slider -->
-                        <div class="product-gallery">
-                            <div class="quickview-slider-active">
-                                <div class="single-slider">
-                                    <img src="https://via.placeholder.com/569x528" alt="#">
-                                </div>
-                                <div class="single-slider">
-                                    <img src="https://via.placeholder.com/569x528" alt="#">
-                                </div>
-                                <div class="single-slider">
-                                    <img src="https://via.placeholder.com/569x528" alt="#">
-                                </div>
-                                <div class="single-slider">
-                                    <img src="https://via.placeholder.com/569x528" alt="#">
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End Product slider -->
+
+<?php
+foreach ($produk['menu'] as $key => $value) {
+?>
+    <form action="<?= base_url('Pelanggan/cCart/add_cart') ?>" method="POST">
+        <input type="hidden" name="name" value="<?= $value->nama_produk ?>">
+        <input type="hidden" name="id" value="<?= $value->id_diskon ?>">
+        <input type="hidden" name="price" value="<?= $value->harga - ($value->harga * $value->diskon / 100) ?>">
+        <input type="hidden" name="stok" value="<?= $value->stok ?>">
+        <input type="hidden" name="picture" value="<?= $value->gambar ?>">
+        <input type="hidden" name="qty" value="1">
+        <input type="hidden" name="diskon" value="<?= $value->diskon ?>">
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal<?= $value->id_diskon ?>" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="ti-close" aria-hidden="true"></span></button>
                     </div>
-                    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
-                        <div class="quickview-content">
-                            <h2>Flared Shift Dress</h2>
-                            <div class="quickview-ratting-review">
-                                <div class="quickview-ratting-wrap">
-                                    <div class="quickview-ratting">
-                                        <i class="yellow fa fa-star"></i>
-                                        <i class="yellow fa fa-star"></i>
-                                        <i class="yellow fa fa-star"></i>
-                                        <i class="yellow fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                    </div>
-                                    <a href="#"> (1 customer review)</a>
-                                </div>
-                                <div class="quickview-stock">
-                                    <span><i class="fa fa-check-circle-o"></i> in stock</span>
-                                </div>
-                            </div>
-                            <h3>$29.00</h3>
-                            <div class="quickview-peragraph">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia iste laborum ad impedit pariatur esse optio tempora sint ullam autem deleniti nam in quos qui nemo ipsum numquam.</p>
-                            </div>
-                            <div class="size">
-                                <div class="row">
-                                    <div class="col-lg-6 col-12">
-                                        <h5 class="title">Size</h5>
-                                        <select>
-                                            <option selected="selected">s</option>
-                                            <option>m</option>
-                                            <option>l</option>
-                                            <option>xl</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-lg-6 col-12">
-                                        <h5 class="title">Color</h5>
-                                        <select>
-                                            <option selected="selected">orange</option>
-                                            <option>purple</option>
-                                            <option>black</option>
-                                            <option>pink</option>
-                                        </select>
+                    <div class="modal-body">
+                        <div class="row no-gutters">
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                                <!-- Product Slider -->
+                                <div class="product-gallery">
+                                    <div class="quickview-slider-active">
+                                        <div class="single-slider">
+                                            <img src="<?= base_url('asset/foto-produk/' . $value->gambar) ?>" alt="#">
+                                        </div>
+                                        <div class="single-slider">
+                                            <img src="<?= base_url('asset/foto-produk/' . $value->gambar) ?>" alt="#">
+                                        </div>
+                                        <div class="single-slider">
+                                            <img src="<?= base_url('asset/foto-produk/' . $value->gambar) ?>" alt="#">
+                                        </div>
+                                        <div class="single-slider">
+                                            <img src="<?= base_url('asset/foto-produk/' . $value->gambar) ?>" alt="#">
+                                        </div>
                                     </div>
                                 </div>
+                                <!-- End Product slider -->
                             </div>
-                            <div class="quantity">
-                                <!-- Input Order -->
-                                <div class="input-group">
-                                    <div class="button minus">
-                                        <button type="button" class="btn btn-primary btn-number" disabled="disabled" data-type="minus" data-field="quant[1]">
-                                            <i class="ti-minus"></i>
-                                        </button>
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                                <div class="quickview-content">
+                                    <h2><?= $value->nama_produk ?></h2>
+                                    <div class="quickview-ratting-review">
+                                        <div class="quickview-ratting-wrap">
+                                            <div class="quickview-ratting">
+                                                <i class="yellow fa fa-star"></i>
+                                                <i class="yellow fa fa-star"></i>
+                                                <i class="yellow fa fa-star"></i>
+                                                <i class="yellow fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                            </div>
+                                            <a href="#"> (1 customer review)</a>
+                                        </div>
+                                        <div class="quickview-stock">
+                                            <span><i class="fa fa-check-circle-o"></i> <?= $value->stok ?></span>
+                                        </div>
                                     </div>
-                                    <input type="text" name="quant[1]" class="input-number" data-min="1" data-max="1000" value="1">
-                                    <div class="button plus">
-                                        <button type="button" class="btn btn-primary btn-number" data-type="plus" data-field="quant[1]">
-                                            <i class="ti-plus"></i>
-                                        </button>
+                                    <h3>Rp. <?= number_format($value->harga - ($value->harga * $value->diskon / 100), 0) ?></h3>
+                                    <div class="quickview-peragraph">
+                                        <p><?= $value->deskripsi ?></p>
+
+                                    </div>
+
+                                    <div class="add-to-cart">
+                                        <button type="submit" class="btn">Add to cart</button>
                                     </div>
                                 </div>
-                                <!--/ End Input Order -->
-                            </div>
-                            <div class="add-to-cart">
-                                <a href="#" class="btn">Add to cart</a>
-                                <a href="#" class="btn min"><i class="ti-heart"></i></a>
-                                <a href="#" class="btn min"><i class="fa fa-compress"></i></a>
-                            </div>
-                            <div class="default-social">
-                                <h4 class="share-now">Share:</h4>
-                                <ul>
-                                    <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
-                                    <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a class="youtube" href="#"><i class="fa fa-pinterest-p"></i></a></li>
-                                    <li><a class="dribbble" href="#"><i class="fa fa-google-plus"></i></a></li>
-                                </ul>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
-<!-- Modal end -->
+        <!-- Modal end -->
+    </form>
+<?php
+}
+?>

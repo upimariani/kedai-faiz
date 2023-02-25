@@ -48,7 +48,7 @@ class cTransaksiLangsung extends CI_Controller
 	{
 		$data = array(
 			'id_transaksi' => $this->input->post('id_transaksi'),
-			'id_pelanggan' => $this->session->userdata('id'),
+			'id_pelanggan' => $this->input->post('pelanggan'),
 			'tgl_transaksi' => date('Y-m-d'),
 			'total_bayar' => $this->input->post('total'),
 			'status_order' => '4',
@@ -82,7 +82,26 @@ class cTransaksiLangsung extends CI_Controller
 			$this->mCheckout->stok($id, $data);
 		}
 
+		$id_pelanggan = $this->input->post('pelanggan');
+		$pelanggan = $this->mStatusOrder->pelanggan($id_pelanggan);
+		$point_sebelumnya = $pelanggan->point;
 
+		$total_bayar = $this->input->post('total');
+		$point = (0.5 / 100) * $total_bayar;
+		$point_update = $point_sebelumnya + $point;
+		//update level member
+		if ($point_update <= 1000) {
+			$member = '3';
+		} else if ($point_update >= 1000) {
+			$member = '2';
+		} else if ($point_update >= 10000) {
+			$member = '1';
+		}
+		$data = array(
+			'point' => $point_update,
+			'level_member' => $member
+		);
+		$this->mStatusOrder->update_point($id_pelanggan, $data);
 		$this->cart->destroy();
 		redirect('admin/cTransaksiLangsung');
 	}

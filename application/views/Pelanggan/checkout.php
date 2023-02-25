@@ -83,7 +83,7 @@
 					<div class="col-lg-2 col-md-2 col-12">
 						<!-- Logo -->
 						<div class="logo">
-							<a href="index.html"><img src="images/logo.png" alt="logo"></a>
+							<a href="index.html"><img style="width: 400px;" src="<?= base_url() ?>asset/logo.png" alt="logo"></a>
 						</div>
 						<!--/ End Logo -->
 						<!-- Search Form -->
@@ -236,7 +236,7 @@
 					<div class="col-lg-8 col-12">
 						<div class="checkout-form">
 							<h2>Make Your Checkout Here</h2>
-							<p>Please register in order to checkout more quickly</p>
+							<p>Minimal pembelian kamu sebesar <strong>Rp. <?= number_format(40000) ?></strong> yak!!!</p>
 							<!-- Form -->
 							<div class="row">
 								<div class="col-lg-6 col-md-6 col-12">
@@ -298,13 +298,20 @@
 
 							<!--/ End Payment Method Widget -->
 							<!-- Button Widget -->
-							<div class="single-widget get-button">
-								<div class="content">
-									<div class="button">
-										<button type="submit" class="btn">proceed to checkout</button>
+							<?php
+							if ($this->cart->total() >= 40000) {
+							?>
+								<div class="single-widget get-button">
+									<div class="content">
+										<div class="button">
+											<button type="submit" class="btn">proceed to checkout</button>
+										</div>
 									</div>
 								</div>
-							</div>
+							<?php
+							}
+							?>
+
 							<!--/ End Button Widget -->
 						</div>
 					</div>

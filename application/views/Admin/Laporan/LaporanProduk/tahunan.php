@@ -30,6 +30,7 @@
                             <thead>
                                 <tr>
                                     <th>Id Produk</th>
+                                    <th>Nama Member</th>
                                     <th>Nama Produk</th>
                                     <th>Quantity</th>
                                     <th>Subtotal</th>
@@ -42,6 +43,7 @@
 
                                     <tr>
                                         <td><?= $value->id_produk ?></td>
+                                        <td><?= $value->nm_pel ?></td>
                                         <td><?= $value->nama_produk ?></td>
                                         <td><?= $value->qty ?></td>
                                         <td>Rp. <?= number_format($value->harga * $value->qty) ?></td>

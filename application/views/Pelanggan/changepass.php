@@ -29,7 +29,7 @@
                     <div class="col-md-12">
                         <div class="form-block mx-auto">
                             <div class="text-center mb-5">
-                                <h3 class="text-uppercase">New <strong>Password</strong></h3>
+                                <h3 class="text-uppercase">New <strong>Password</strong> <?= $this->session->userdata('id_pelanggan') ?></h3>
                             </div>
                             <?php if ($this->session->userdata('success')) {
                             ?>
@@ -46,16 +46,16 @@
                                 </div>
                             <?php
                             } ?>
-                            <form action="<?= base_url('pelanggan/clogin/changePassword') ?>" method="post">
+                            <form action="<?= base_url('pelanggan/clogin/changepass') ?>" method="post">
                                 <div class="form-group last mb-3">
                                     <label for="password">Password</label>
                                     <input type="password" name="password1" class="form-control" placeholder="New Password" id="password1">
-                                    <?= form_error('password', '<small class="text-danger">', '</small>') ?>
+                                    <?= form_error('password1', '<small class="text-danger">', '</small>') ?>
                                 </div>
                                 <div class="form-group last mb-3">
                                     <label for="password">Password</label>
                                     <input type="password" name="password2" class="form-control" placeholder="Repeat Password" id="password2">
-                                    <?= form_error('password', '<small class="text-danger">', '</small>') ?>
+                                    <?= form_error('password2', '<small class="text-danger">', '</small>') ?>
                                 </div>
                                 <small class="text-primary">Anda belum memiliki akun? <a href="<?= base_url('Pelanggan/cLogin/register') ?>">Register!!</a></small>
                                 <input type="submit" value="Ganti Password" class="btn btn-block py-2 btn-primary">

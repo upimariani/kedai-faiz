@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 05 Okt 2022 pada 08.57
+-- Waktu pembuatan: 07 Feb 2023 pada 14.34
 -- Versi server: 10.4.24-MariaDB
 -- Versi PHP: 7.4.29
 
@@ -120,7 +120,12 @@ INSERT INTO `detail_transaksi` (`id_detail`, `id_transaksi`, `id_diskon`, `qty`)
 (54, '20221004RN1CND6Q', 6, 1),
 (55, '20221005H04OT9UY', 6, 1),
 (56, '20221005H04OT9UY', 15, 1),
-(57, '20221005OABQLC6N', 3, 1);
+(57, '20221005OABQLC6N', 3, 1),
+(58, '20230207D3XYFJBP', 3, 1),
+(59, '20230207DU0F3X1Y', 9, 1),
+(60, '20230207DU0F3X1Y', 18, 1),
+(61, '20230207DU0F3X1Y', 21, 1),
+(62, '2023020743ONMITE', 3, 1);
 
 -- --------------------------------------------------------
 
@@ -318,17 +323,16 @@ CREATE TABLE `pelanggan` (
   `email` varchar(125) DEFAULT NULL,
   `password` varchar(125) NOT NULL,
   `level_member` int(11) NOT NULL,
-  `point` int(11) NOT NULL,
-  `rol_id` int(11) DEFAULT NULL,
-  `is_active` int(11) DEFAULT NULL
+  `point` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `pelanggan`
 --
 
-INSERT INTO `pelanggan` (`id_pelanggan`, `nm_pel`, `alamat`, `no_tlpon`, `username`, `email`, `password`, `level_member`, `point`, `rol_id`, `is_active`) VALUES
-(1, 'hana', 'Kuningan', '0891291829182', 'hana', 'rizkihasbiallah06@gmail.com', '123456789', 3, 735, 2, 1);
+INSERT INTO `pelanggan` (`id_pelanggan`, `nm_pel`, `alamat`, `no_tlpon`, `username`, `email`, `password`, `level_member`, `point`) VALUES
+(1, 'hana', 'Kuningan', '0891291829182', 'hana', 'rizkihasbiallah06@gmail.com', 'akuadalah', 3, 735),
+(3, 'Zaskia', 'Kuningan', '089876567654', 'zaskia', 'zaskia@gmail.com', 'zaskia', 3, 105);
 
 -- --------------------------------------------------------
 
@@ -452,7 +456,10 @@ INSERT INTO `transaksi` (`id_transaksi`, `id_pelanggan`, `tgl_transaksi`, `total
 ('20221004RN1CND6Q', 1, '2022-10-04', '36000', 4, 2, '0'),
 ('20221004W7URKPFE', 1, '2022-10-04', '61000', 4, 2, '0'),
 ('20221005H04OT9UY', 1, '2022-10-05', '30000', 4, 2, '0'),
-('20221005OABQLC6N', 1, '2022-10-05', '21000', 4, 2, '0');
+('20221005OABQLC6N', 1, '2022-10-05', '21000', 4, 2, '0'),
+('2023020743ONMITE', 3, '2023-02-07', '21000', 4, 2, '0'),
+('20230207D3XYFJBP', 1, '2023-02-07', '21000', 4, 2, '0'),
+('20230207DU0F3X1Y', 3, '2023-02-07', '55000', 4, 2, '0');
 
 -- --------------------------------------------------------
 
@@ -476,26 +483,6 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id_user`, `nama_user`, `alamat`, `no_hp`, `username`, `password`, `level_user`) VALUES
 (1, 'Admin', 'Kuningan Jawa Barat', '085156727368', 'admin', 'admin', 1);
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `user_token`
---
-
-CREATE TABLE `user_token` (
-  `id` int(11) NOT NULL,
-  `email` varchar(128) NOT NULL,
-  `token` varchar(128) NOT NULL,
-  `date_created` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data untuk tabel `user_token`
---
-
-INSERT INTO `user_token` (`id`, `email`, `token`, `date_created`) VALUES
-(2, 'rizkihasbiallah06@gmail.com', 'vwt0QUJEv7pV/BizG8LaFodKFz4jvtLblohd0uFQBws=', 1662248920);
 
 --
 -- Indexes for dumped tables
@@ -568,12 +555,6 @@ ALTER TABLE `user`
   ADD PRIMARY KEY (`id_user`);
 
 --
--- Indeks untuk tabel `user_token`
---
-ALTER TABLE `user_token`
-  ADD PRIMARY KEY (`id`);
-
---
 -- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
@@ -587,7 +568,7 @@ ALTER TABLE `chatting`
 -- AUTO_INCREMENT untuk tabel `detail_transaksi`
 --
 ALTER TABLE `detail_transaksi`
-  MODIFY `id_detail` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
+  MODIFY `id_detail` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
 
 --
 -- AUTO_INCREMENT untuk tabel `diskon`
@@ -617,7 +598,7 @@ ALTER TABLE `kritik_saran`
 -- AUTO_INCREMENT untuk tabel `pelanggan`
 --
 ALTER TABLE `pelanggan`
-  MODIFY `id_pelanggan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_pelanggan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `pengiriman`
@@ -630,12 +611,6 @@ ALTER TABLE `pengiriman`
 --
 ALTER TABLE `user`
   MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT untuk tabel `user_token`
---
-ALTER TABLE `user_token`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

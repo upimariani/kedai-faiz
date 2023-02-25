@@ -25,6 +25,14 @@ class mDashboard extends CI_Model
         $this->db->where('chatting.id_pelanggan', $id);
         return $this->db->get()->result();
     }
+    public function kritik_saran()
+    {
+
+        $this->db->select('*');
+        $this->db->from('kritik_saran');
+        $this->db->join('pelanggan', 'kritik_saran.id_pelanggan = pelanggan.id_pelanggan', 'left');
+        return $this->db->get()->result();
+    }
 }
 
 /* End of file mDashboard.php */

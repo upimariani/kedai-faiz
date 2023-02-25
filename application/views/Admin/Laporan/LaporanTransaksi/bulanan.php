@@ -33,18 +33,31 @@
                                     <th>Tanggal Transaksi</th>
                                     <th>Atas Nama</th>
                                     <th>Total Bayar</th>
+                                    <th>Point</th>
                                 </tr>
                                 <?php
                                 $total = 0;
                                 foreach ($laporan as $key => $value) {
+                                    $point = (0.5 / 100) * $value->total_bayar;
                                     $total += $value->total_bayar;
                                 ?>
 
                                     <tr>
                                         <td><?= $value->id_transaksi ?></td>
                                         <td><?= $value->tgl_transaksi ?></td>
-                                        <td><?= $value->nm_pel ?></td>
+                                        <?php
+                                        if ($value->type_order == '2') {
+                                        ?>
+                                            <td>Transaksi Langsung</td>
+                                        <?php
+                                        } else {
+                                        ?>
+                                            <td><?= $value->nm_pel ?></td>
+                                        <?php
+                                        }
+                                        ?>
                                         <td>Rp. <?= number_format($value->total_bayar) ?></td>
+                                        <td><?= $point ?></td>
                                     </tr>
                                 <?php
                                 }

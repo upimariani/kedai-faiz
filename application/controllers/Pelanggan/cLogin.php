@@ -46,6 +46,9 @@ class cLogin extends CI_Controller
     {
         $this->cart->destroy();
         $this->session->unset_userdata('id');
+        $this->session->unset_userdata('nm_pel');
+        $this->session->unset_userdata('member');
+        $this->session->unset_userdata('alamat');
         $this->session->set_flashdata('error', 'Anda Berhasil Logout!');
         redirect('Pelanggan/cLogin');
     }
@@ -71,27 +74,69 @@ class cLogin extends CI_Controller
                 'email' => ($email),
                 'password' => $this->input->post('password'),
                 'level_member' => '3',
-                'point' => '0',
-                'rol_id' => 2,
-                'is_active' => 0,
+                'point' => '0'
             );
 
-            //token bilangan rendem
-            $token = base64_encode(random_bytes(32));
-            $user_token = [
-                'email' => $email,
-                'token' => $token,
-                'date_created' => time()
-            ];
+            // //token bilangan rendem
+            // $token = base64_encode(random_bytes(32));
+            // $user_token = [
+            //     'email' => $email,
+            //     'token' => $token,
+            //     'date_created' => time()
+            // ];
 
             $this->mLogin->register($data);
 
-            $this->db->insert('user_token', $user_token);
+            // $this->db->insert('user_token', $user_token);
 
-            $this->_sendEmail($token, 'verify');
+            // $this->_sendEmail($token, 'verify');
 
             $this->session->set_flashdata('success', 'Anda Berhasil Register! Silahkan Cek Email Anda Untuk Aktivasi Akun!');
             redirect('Pelanggan/clogin');
+        }
+    }
+    public function lupapassword()
+    {
+        $this->form_validation->set_rules('email', 'Email', 'required');
+
+        if ($this->form_validation->run() == FALSE) {
+            $this->load->view('Pelanggan/masuklupapass');
+        } else {
+            $email = $this->input->post('email');
+
+            $cek_email = $this->db->query("SELECT * FROM `pelanggan` WHERE email='" . $email . "';")->row();
+            if ($cek_email) {
+                $id_pelanggan = $cek_email->id_pelanggan;
+
+
+                $array = array(
+                    'id_pelanggan' => $id_pelanggan
+                );
+
+                $this->session->set_userdata($array);
+
+                redirect('Pelanggan/cLogin/changepass');
+            } else {
+                $this->session->set_flashdata('error', 'Email Tidak Terdaftar!!!');
+                redirect('Pelanggan/cLogin/lupapassword');
+            }
+        }
+    }
+    public function changepass()
+    {
+        $this->form_validation->set_rules('password1', 'Password', 'required');
+        $this->form_validation->set_rules('password2', 'Password', 'required|matches[password1]');
+
+        if ($this->form_validation->run() == FALSE) {
+            $this->load->view('Pelanggan/changepass');
+        } else {
+            $data = array(
+                'password' => $this->input->post('password2')
+            );
+            $this->db->where('id_pelanggan', $this->session->userdata('id_pelanggan'));
+            $this->db->update('pelanggan', $data);
+            $this->session->set_flashdata('success', 'Anda Berhasil Merubah Password!!! Silahkan Login');
+            redirect('Pelanggan/cLogin');
         }
     }
 

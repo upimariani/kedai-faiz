@@ -36,11 +36,21 @@
                         <div class="right-content">
                             <ul class="list-main">
 
+
                                 <li><i class="ti-user"></i> <a href="#"><?= $this->session->userdata('nm_pel'); ?></a></li>
                                 <?php
                                 if ($this->session->userdata('id') == '') {
                                     echo '<li><i class="ti-power-off"></i><a href="' . base_url('Pelanggan/cLogin') . '">Login</a></li>';
                                 } else {
+                                    //informasi diskon
+                                    $data = $this->db->query("SELECT COUNT(id_diskon) as jml FROM `diskon` WHERE member='" . $this->session->userdata('member') . "' AND diskon != '0';")->row();
+                                    $total_diskon = $data->jml;
+
+                                    if ($total_diskon != 0) {
+                                        echo '<li><i class="ti-info"></i>Anda Memiliki <span class="badge badge-success">' . $total_diskon . '</span> barang diskon!!! Order Sekarangg...</li>';
+                                    }
+
+
                                     echo '<li><i class="ti-power-off"></i><a href="' . base_url('Pelanggan/cLogin/logout') . '">Logout</a></li>';
                                 }
                                 ?>

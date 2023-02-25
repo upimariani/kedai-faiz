@@ -39,7 +39,7 @@
                                 ?>
                                     <tr>
                                         <td><?= $value->id_transaksi ?></td>
-                                        <td>Admin</td>
+                                        <td><?= $value->nm_pel ?></td>
                                         <td><?= $value->tgl_transaksi ?></td>
                                         <td>Rp. <?= number_format($value->total_bayar)  ?></td>
                                         <td><span class="badge bg-success">Selesai</span> </td>

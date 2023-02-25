@@ -66,7 +66,7 @@
                             </div>
                             <div class="col-sm-12">
                                 <div class="form-group">
-                                    <button type="submit" class="btn btn-info mt-3"><i class="fa fa-print"></i> Cetak Laporan</button>
+                                    <button type="submit" class="btn btn-info mt-3"><i class="fa fa-print"></i> View Laporan</button>
                                 </div>
                             </div>
                         </div>
@@ -116,7 +116,7 @@
                             </div>
                             <div class="col-sm-12">
                                 <div class="form-group">
-                                    <button type="submit" class="btn btn-info mt-3"><i class="fa fa-print"></i> Cetak Laporan</button>
+                                    <button type="submit" class="btn btn-info mt-3"><i class="fa fa-print"></i> View Laporan</button>
                                 </div>
                             </div>
                         </div>
@@ -152,7 +152,7 @@
                             </div>
                             <div class="col-sm-12">
                                 <div class="form-group">
-                                    <button type="submit" class="btn btn-info mt-3"><i class="fa fa-print"></i> Cetak Laporan</button>
+                                    <button type="submit" class="btn btn-info mt-3"><i class="fa fa-print"></i> View Laporan</button>
                                 </div>
                             </div>
                         </div>

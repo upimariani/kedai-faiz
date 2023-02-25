@@ -15,7 +15,7 @@ class mKatalog extends CI_Model
     }
     public function produk_best()
     {
-        return $this->db->query("SELECT SUM(qty) as qty, produk.id_produk, nama_produk, harga, gambar FROM `detail_transaksi` JOIN diskon ON detail_transaksi.id_diskon = diskon.id_diskon JOIN produk on produk.id_produk = diskon.id_produk GROUP BY produk.id_produk ORDER BY qty desc")->result();
+        return $this->db->query("SELECT SUM(qty) as qty, produk.id_produk, nama_produk, deskripsi, harga, gambar, diskon.id_diskon, stok, diskon FROM `detail_transaksi` JOIN diskon ON detail_transaksi.id_diskon = diskon.id_diskon JOIN produk on produk.id_produk = diskon.id_produk GROUP BY produk.id_produk ORDER BY qty desc")->result();
     }
     public function menu_paket()
     {
