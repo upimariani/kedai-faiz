@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 07 Feb 2023 pada 14.34
+-- Waktu pembuatan: 02 Apr 2023 pada 00.16
 -- Versi server: 10.4.24-MariaDB
 -- Versi PHP: 7.4.29
 
@@ -332,6 +332,7 @@ CREATE TABLE `pelanggan` (
 
 INSERT INTO `pelanggan` (`id_pelanggan`, `nm_pel`, `alamat`, `no_tlpon`, `username`, `email`, `password`, `level_member`, `point`) VALUES
 (1, 'hana', 'Kuningan', '0891291829182', 'hana', 'rizkihasbiallah06@gmail.com', 'akuadalah', 3, 735),
+(2, 'Reno', 'Kuningan, Jabar', '08987654367', 'reno', 'reno@gmail.com', 'reno', 3, 0),
 (3, 'Zaskia', 'Kuningan', '089876567654', 'zaskia', 'zaskia@gmail.com', 'zaskia', 3, 105);
 
 -- --------------------------------------------------------
@@ -443,9 +444,9 @@ INSERT INTO `transaksi` (`id_transaksi`, `id_pelanggan`, `tgl_transaksi`, `total
 ('20220617TXHPGYZZ', 2, '2022-06-17', '157000', 4, 1, '31084499740-bukti_transfer1.jpg'),
 ('2022070298WQRIAO', 2, '2022-07-02', '78500', 0, 1, '0'),
 ('20220719BKCIJUD7', 3, '2022-07-19', '40000', 4, 1, 'Bukti-Transfer-BRI-Terbaru-dan-Terlengkap.jpg'),
-('202207239GC0USEW', 4, '2022-07-23', '190750', 4, 1, 'images_(1).jpg'),
+('202207239GC0USEW', 3, '2022-07-23', '190750', 4, 1, 'images_(1).jpg'),
 ('20220723PNOJQ6EX', 3, '2022-07-23', '29950', 0, 1, '0'),
-('20220725KGEFPVD3', 6, '2022-07-25', '64900', 4, 1, 'Nutrisari.jpg'),
+('20220725KGEFPVD3', 2, '2022-07-25', '64900', 4, 1, 'Nutrisari.jpg'),
 ('20220811US0H6Z4S', 1, '2022-08-11', '35000', 4, 2, '0'),
 ('202209043UFMUH6O', 1, '2022-09-04', '15000', 4, 2, '0'),
 ('202209118LKEQMDR', 1, '2022-09-11', '10000', 4, 1, 'b2.jpg'),
@@ -598,7 +599,7 @@ ALTER TABLE `kritik_saran`
 -- AUTO_INCREMENT untuk tabel `pelanggan`
 --
 ALTER TABLE `pelanggan`
-  MODIFY `id_pelanggan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_pelanggan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT untuk tabel `pengiriman`
